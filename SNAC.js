@@ -2,7 +2,7 @@
  * Snac *
  *************/
 
-import { core, data, sound, util, visual, hardware } from './lib/psychojs-2024.2.5.js';
+import { core, data, sound, util, visual, hardware } from './lib/psychojs-2024.2.4.js';
 const { PsychoJS } = core;
 const { TrialHandler, MultiStairHandler } = data;
 const { Scheduler } = util;
@@ -14,7 +14,8 @@ const { round } = util;
 // store info about the experiment session:
 let expName = 'SNAC';  // from the Builder filename that created this script
 let expInfo = {
-    'participant': '',
+    'Please keep this number!': `${util.pad(Number.parseFloat(util.randint(0, 999)).toFixed(0), 3)}`,
+    'What letter were you given?': '',
 };
 
 // Start code blocks for 'Before Experiment'
@@ -85,99 +86,260 @@ flowScheduler.add(trialsLoopEnd);
 flowScheduler.add(endRoutineBegin());
 flowScheduler.add(endRoutineEachFrame());
 flowScheduler.add(endRoutineEnd());
-flowScheduler.add(quitPsychoJS, 'Thank you for your patience.', true);
+flowScheduler.add(quitPsychoJS, 'Please wait for one moment while we load the final forms.', true);
 
 // quit if user presses Cancel in dialog box:
-dialogCancelScheduler.add(quitPsychoJS, 'Thank you for your patience.', false);
+dialogCancelScheduler.add(quitPsychoJS, 'Please wait for one moment while we load the final forms.', false);
 
 psychoJS.start({
   expName: expName,
   expInfo: expInfo,
   resources: [
     // resources:
-    {'name': 'ppt.image.durations.xlsx', 'path': 'ppt.image.durations.xlsx'},
-    {'name': 'low arousal urban/Golden (18).jpg', 'path': 'low arousal urban/Golden (18).jpg'},
-    {'name': 'high arousal urban/DTC (13).jpg', 'path': 'high arousal urban/DTC (13).jpg'},
-    {'name': 'high arousal nature/Berman_Nature__17.jpg', 'path': 'high arousal nature/Berman_Nature__17.jpg'},
-    {'name': 'high arousal urban/DU (38).jpg', 'path': 'high arousal urban/DU (38).jpg'},
-    {'name': 'low arousal nature/Vacation_7115.JPG', 'path': 'low arousal nature/Vacation_7115.JPG'},
-    {'name': 'high arousal urban/CO_Blvrd (23).jpg', 'path': 'high arousal urban/CO_Blvrd (23).jpg'},
-    {'name': 'high arousal nature/Vacation_5661.JPG', 'path': 'high arousal nature/Vacation_5661.JPG'},
-    {'name': 'high arousal nature/Tarryall_0620.JPG', 'path': 'high arousal nature/Tarryall_0620.JPG'},
-    {'name': 'high arousal nature/Vacation_5553.JPG', 'path': 'high arousal nature/Vacation_5553.JPG'},
-    {'name': 'high arousal urban/CO_Blvrd (38).jpg', 'path': 'high arousal urban/CO_Blvrd (38).jpg'},
-    {'name': 'low arousal urban/Downtown_0299.jpg', 'path': 'low arousal urban/Downtown_0299.jpg'},
-    {'name': 'low arousal nature/Hyalite_0213.JPG', 'path': 'low arousal nature/Hyalite_0213.JPG'},
-    {'name': 'high arousal nature/BotanicGardens_0044.JPG', 'path': 'high arousal nature/BotanicGardens_0044.JPG'},
-    {'name': 'low arousal nature/GotG_0072.jpg', 'path': 'low arousal nature/GotG_0072.jpg'},
-    {'name': 'low arousal nature/Aquarium_0632.JPG', 'path': 'low arousal nature/Aquarium_0632.JPG'},
-    {'name': 'high arousal urban/Golden (78).jpg', 'path': 'high arousal urban/Golden (78).jpg'},
-    {'name': 'low arousal urban/Bozeman_0012.JPG', 'path': 'low arousal urban/Bozeman_0012.JPG'},
-    {'name': 'low arousal nature/Aquarium_0465.JPG', 'path': 'low arousal nature/Aquarium_0465.JPG'},
-    {'name': 'high arousal urban/Downtown_0354.jpg', 'path': 'high arousal urban/Downtown_0354.jpg'},
-    {'name': 'high arousal urban/Billings_0250.JPG', 'path': 'high arousal urban/Billings_0250.JPG'},
-    {'name': 'low arousal urban/DTC (21).jpg', 'path': 'low arousal urban/DTC (21).jpg'},
-    {'name': 'low arousal urban/16thStreetMall_0771.JPG', 'path': 'low arousal urban/16thStreetMall_0771.JPG'},
-    {'name': 'low arousal urban/16thStreetMall_0806.JPG', 'path': 'low arousal urban/16thStreetMall_0806.JPG'},
-    {'name': 'low arousal urban/16thStreetMall_0813.JPG', 'path': 'low arousal urban/16thStreetMall_0813.JPG'},
-    {'name': 'high arousal urban/Downtown_0351.jpg', 'path': 'high arousal urban/Downtown_0351.jpg'},
-    {'name': 'high arousal urban/DU (20).jpg', 'path': 'high arousal urban/DU (20).jpg'},
-    {'name': 'low arousal urban/DTC (41).jpg', 'path': 'low arousal urban/DTC (41).jpg'},
-    {'name': 'high arousal nature/Vacation_5665.JPG', 'path': 'high arousal nature/Vacation_5665.JPG'},
-    {'name': 'high arousal urban/Golden (40).jpg', 'path': 'high arousal urban/Golden (40).jpg'},
-    {'name': 'low arousal urban/Billings_0276.JPG', 'path': 'low arousal urban/Billings_0276.JPG'},
-    {'name': 'high arousal nature/Tarryall_0607.JPG', 'path': 'high arousal nature/Tarryall_0607.JPG'},
-    {'name': 'low arousal urban/Vacation_8420.JPG', 'path': 'low arousal urban/Vacation_8420.JPG'},
-    {'name': 'high arousal nature/Vacation_7683.JPG', 'path': 'high arousal nature/Vacation_7683.JPG'},
-    {'name': 'high arousal nature/Vacation_5512.JPG', 'path': 'high arousal nature/Vacation_5512.JPG'},
-    {'name': 'high arousal nature/BotanicGardens_0043.JPG', 'path': 'high arousal nature/BotanicGardens_0043.JPG'},
-    {'name': 'low arousal nature/Tarryall_0622.JPG', 'path': 'low arousal nature/Tarryall_0622.JPG'},
-    {'name': 'low arousal nature/17H.jpg', 'path': 'low arousal nature/17H.jpg'},
-    {'name': 'high arousal nature/Vacation_6668.JPG', 'path': 'high arousal nature/Vacation_6668.JPG'},
-    {'name': 'low arousal urban/Golden (30).jpg', 'path': 'low arousal urban/Golden (30).jpg'},
-    {'name': 'low arousal nature/Vacation_7074.JPG', 'path': 'low arousal nature/Vacation_7074.JPG'},
-    {'name': 'high arousal nature/Hyalite_0230.JPG', 'path': 'high arousal nature/Hyalite_0230.JPG'},
-    {'name': 'high arousal urban/Billings_0243.JPG', 'path': 'high arousal urban/Billings_0243.JPG'},
-    {'name': 'low arousal urban/16thStreetMall_0838.JPG', 'path': 'low arousal urban/16thStreetMall_0838.JPG'},
-    {'name': 'low arousal nature/Hyalite_0174.JPG', 'path': 'low arousal nature/Hyalite_0174.JPG'},
-    {'name': 'high arousal nature/Vacation_7001.JPG', 'path': 'high arousal nature/Vacation_7001.JPG'},
-    {'name': 'low arousal urban/16thStreetMall_0744.JPG', 'path': 'low arousal urban/16thStreetMall_0744.JPG'},
-    {'name': 'high arousal urban/Urban_Berman_24.jpg', 'path': 'high arousal urban/Urban_Berman_24.jpg'},
-    {'name': 'high arousal nature/Ranch (4).jpeg', 'path': 'high arousal nature/Ranch (4).jpeg'},
-    {'name': 'high arousal urban/CO_Blvrd (22).jpg', 'path': 'high arousal urban/CO_Blvrd (22).jpg'},
-    {'name': 'low arousal nature/BotanicGardens_0941.JPG', 'path': 'low arousal nature/BotanicGardens_0941.JPG'},
-    {'name': 'high arousal urban/Urban_Berman_32.jpg', 'path': 'high arousal urban/Urban_Berman_32.jpg'},
-    {'name': 'high arousal urban/Downtown_0344.jpg', 'path': 'high arousal urban/Downtown_0344.jpg'},
-    {'name': 'high arousal urban/Golden (64).jpg', 'path': 'high arousal urban/Golden (64).jpg'},
-    {'name': 'low arousal nature/GotG_0084.jpg', 'path': 'low arousal nature/GotG_0084.jpg'},
-    {'name': 'low arousal nature/Vacation_7082.JPG', 'path': 'low arousal nature/Vacation_7082.JPG'},
-    {'name': 'high arousal nature/Hyalite_0239.JPG', 'path': 'high arousal nature/Hyalite_0239.JPG'},
-    {'name': 'high arousal nature/Berman_Nature__45.jpg', 'path': 'high arousal nature/Berman_Nature__45.jpg'},
-    {'name': 'low arousal urban/DU (18).jpg', 'path': 'low arousal urban/DU (18).jpg'},
-    {'name': 'high arousal nature/Vacation_0924.JPG', 'path': 'high arousal nature/Vacation_0924.JPG'},
-    {'name': 'low arousal nature/08H.jpg', 'path': 'low arousal nature/08H.jpg'},
-    {'name': 'low arousal nature/Zoo_0172.JPG', 'path': 'low arousal nature/Zoo_0172.JPG'},
-    {'name': 'high arousal nature/Hyalite_0218.JPG', 'path': 'high arousal nature/Hyalite_0218.JPG'},
-    {'name': 'low arousal nature/Vacation_5781.JPG', 'path': 'low arousal nature/Vacation_5781.JPG'},
-    {'name': 'high arousal urban/CO_Blvrd (8).jpg', 'path': 'high arousal urban/CO_Blvrd (8).jpg'},
-    {'name': 'low arousal nature/BotanicGardens_0497.JPG', 'path': 'low arousal nature/BotanicGardens_0497.JPG'},
-    {'name': 'high arousal urban/Downtown_0304.jpg', 'path': 'high arousal urban/Downtown_0304.jpg'},
-    {'name': 'low arousal urban/Downtown_0367.jpg', 'path': 'low arousal urban/Downtown_0367.jpg'},
-    {'name': 'low arousal nature/Hyalite_0180.JPG', 'path': 'low arousal nature/Hyalite_0180.JPG'},
-    {'name': 'low arousal urban/Urban_Berman_40.jpg', 'path': 'low arousal urban/Urban_Berman_40.jpg'},
-    {'name': 'high arousal nature/Vacation_5672.JPG', 'path': 'high arousal nature/Vacation_5672.JPG'},
-    {'name': 'low arousal urban/Bozeman_0044.JPG', 'path': 'low arousal urban/Bozeman_0044.JPG'},
-    {'name': 'high arousal urban/Downtown_0392.jpg', 'path': 'high arousal urban/Downtown_0392.jpg'},
-    {'name': 'low arousal urban/Vacation_8664.JPG', 'path': 'low arousal urban/Vacation_8664.JPG'},
-    {'name': 'low arousal urban/Billings_0280.JPG', 'path': 'low arousal urban/Billings_0280.JPG'},
-    {'name': 'low arousal nature/Vacation_7080.JPG', 'path': 'low arousal nature/Vacation_7080.JPG'},
-    {'name': 'low arousal urban/Billings_0286.JPG', 'path': 'low arousal urban/Billings_0286.JPG'},
-    {'name': 'high arousal nature/Vacation_5473.JPG', 'path': 'high arousal nature/Vacation_5473.JPG'},
-    {'name': 'high arousal urban/DTC (47).jpg', 'path': 'high arousal urban/DTC (47).jpg'},
-    {'name': 'low arousal nature/31H.jpg', 'path': 'low arousal nature/31H.jpg'},
-    {'name': 'low arousal nature/BotanicGardens_0924.JPG', 'path': 'low arousal nature/BotanicGardens_0924.JPG'},
+    {'name': 'image.durations.full.csv', 'path': 'image.durations.full.csv'},
+    {'name': 'HANature/Berman_Nature__32.jpg', 'path': 'HANature/Berman_Nature__32.jpg'},
+    {'name': 'HANature/Berman_Nature__41.jpg', 'path': 'HANature/Berman_Nature__41.jpg'},
+    {'name': 'HANature/Berman_Nature__45.jpg', 'path': 'HANature/Berman_Nature__45.jpg'},
+    {'name': 'HANature/BotanicGardens_0044.JPG', 'path': 'HANature/BotanicGardens_0044.JPG'},
+    {'name': 'HANature/BotanicGardens_0059.JPG', 'path': 'HANature/BotanicGardens_0059.JPG'},
+    {'name': 'HANature/Hyalite_0084.JPG', 'path': 'HANature/Hyalite_0084.JPG'},
+    {'name': 'HANature/Hyalite_0218.JPG', 'path': 'HANature/Hyalite_0218.JPG'},
+    {'name': 'HANature/Hyalite_0230.JPG', 'path': 'HANature/Hyalite_0230.JPG'},
+    {'name': 'HANature/Hyalite_0237.JPG', 'path': 'HANature/Hyalite_0237.JPG'},
+    {'name': 'HANature/Practice.jpg', 'path': 'HANature/Practice.jpg'},
+    {'name': 'HANature/Ranch_5.jpeg', 'path': 'HANature/Ranch_5.jpeg'},
+    {'name': 'HANature/Tarryall_0618.JPG', 'path': 'HANature/Tarryall_0618.JPG'},
+    {'name': 'HANature/Vacation_1449.JPG', 'path': 'HANature/Vacation_1449.JPG'},
+    {'name': 'HANature/Vacation_5469.JPG', 'path': 'HANature/Vacation_5469.JPG'},
+    {'name': 'HANature/Vacation_5553.JPG', 'path': 'HANature/Vacation_5553.JPG'},
+    {'name': 'HANature/Vacation_5558.JPG', 'path': 'HANature/Vacation_5558.JPG'},
+    {'name': 'HANature/Vacation_5663.JPG', 'path': 'HANature/Vacation_5663.JPG'},
+    {'name': 'HANature/Vacation_5756.JPG', 'path': 'HANature/Vacation_5756.JPG'},
+    {'name': 'HANature/Vacation_7596.JPG', 'path': 'HANature/Vacation_7596.JPG'},
+    {'name': 'HANature/Vacation_7657.JPG', 'path': 'HANature/Vacation_7657.JPG'},
+    {'name': 'HAUrban/Billings_0243.JPG', 'path': 'HAUrban/Billings_0243.JPG'},
+    {'name': 'HAUrban/Billings_0277.JPG', 'path': 'HAUrban/Billings_0277.JPG'},
+    {'name': 'HAUrban/Billings_0299.JPG', 'path': 'HAUrban/Billings_0299.JPG'},
+    {'name': 'HAUrban/Billings_0310.JPG', 'path': 'HAUrban/Billings_0310.JPG'},
+    {'name': 'HAUrban/CO_Blvrd_11.jpg', 'path': 'HAUrban/CO_Blvrd_11.jpg'},
+    {'name': 'HAUrban/CO_Blvrd_21.jpg', 'path': 'HAUrban/CO_Blvrd_21.jpg'},
+    {'name': 'HAUrban/CO_Blvrd_28.jpg', 'path': 'HAUrban/CO_Blvrd_28.jpg'},
+    {'name': 'HAUrban/CO_Blvrd_4.jpg', 'path': 'HAUrban/CO_Blvrd_4.jpg'},
+    {'name': 'HAUrban/CO_Blvrd_8.jpg', 'path': 'HAUrban/CO_Blvrd_8.jpg'},
+    {'name': 'HAUrban/Downtown_0306.jpg', 'path': 'HAUrban/Downtown_0306.jpg'},
+    {'name': 'HAUrban/Downtown_0330.jpg', 'path': 'HAUrban/Downtown_0330.jpg'},
+    {'name': 'HAUrban/Downtown_0345.jpg', 'path': 'HAUrban/Downtown_0345.jpg'},
+    {'name': 'HAUrban/Downtown_0353.jpg', 'path': 'HAUrban/Downtown_0353.jpg'},
+    {'name': 'HAUrban/Downtown_0392.jpg', 'path': 'HAUrban/Downtown_0392.jpg'},
+    {'name': 'HAUrban/DTC_32.jpg', 'path': 'HAUrban/DTC_32.jpg'},
+    {'name': 'HAUrban/DU_20.jpg', 'path': 'HAUrban/DU_20.jpg'},
+    {'name': 'HAUrban/Golden_47.jpg', 'path': 'HAUrban/Golden_47.jpg'},
+    {'name': 'HAUrban/Golden_71.jpg', 'path': 'HAUrban/Golden_71.jpg'},
+    {'name': 'HAUrban/Urban_Berman_15.jpg', 'path': 'HAUrban/Urban_Berman_15.jpg'},
+    {'name': 'HAUrban/Urban_Berman_32.jpg', 'path': 'HAUrban/Urban_Berman_32.jpg'},
+    {'name': 'LANature/04H.jpg', 'path': 'LANature/04H.jpg'},
+    {'name': 'LANature/08H.jpg', 'path': 'LANature/08H.jpg'},
+    {'name': 'LANature/15L.jpg', 'path': 'LANature/15L.jpg'},
+    {'name': 'LANature/22H.jpg', 'path': 'LANature/22H.jpg'},
+    {'name': 'LANature/24L.jpg', 'path': 'LANature/24L.jpg'},
+    {'name': 'LANature/29H.jpg', 'path': 'LANature/29H.jpg'},
+    {'name': 'LANature/31L.jpg', 'path': 'LANature/31L.jpg'},
+    {'name': 'LANature/Aquarium_0261.JPG', 'path': 'LANature/Aquarium_0261.JPG'},
+    {'name': 'LANature/Aquarium_0442.JPG', 'path': 'LANature/Aquarium_0442.JPG'},
+    {'name': 'LANature/Aquarium_0605.JPG', 'path': 'LANature/Aquarium_0605.JPG'},
+    {'name': 'LANature/BotanicGardens_0176.JPG', 'path': 'LANature/BotanicGardens_0176.JPG'},
+    {'name': 'LANature/BotanicGardens_0924.JPG', 'path': 'LANature/BotanicGardens_0924.JPG'},
+    {'name': 'LANature/GotG_0060.jpg', 'path': 'LANature/GotG_0060.jpg'},
+    {'name': 'LANature/GotG_0100.jpg', 'path': 'LANature/GotG_0100.jpg'},
+    {'name': 'LANature/Hyalite_0180.JPG', 'path': 'LANature/Hyalite_0180.JPG'},
+    {'name': 'LANature/Tarryall_0622.JPG', 'path': 'LANature/Tarryall_0622.JPG'},
+    {'name': 'LANature/Vacation_7034.JPG', 'path': 'LANature/Vacation_7034.JPG'},
+    {'name': 'LANature/Vacation_7082.JPG', 'path': 'LANature/Vacation_7082.JPG'},
+    {'name': 'LANature/Vacation_7996.JPG', 'path': 'LANature/Vacation_7996.JPG'},
+    {'name': 'LANature/Zoo_0176.JPG', 'path': 'LANature/Zoo_0176.JPG'},
+    {'name': 'LAUrban/16thStreetMall_0740.JPG', 'path': 'LAUrban/16thStreetMall_0740.JPG'},
+    {'name': 'LAUrban/16thStreetMall_0765.JPG', 'path': 'LAUrban/16thStreetMall_0765.JPG'},
+    {'name': 'LAUrban/16thStreetMall_0795.JPG', 'path': 'LAUrban/16thStreetMall_0795.JPG'},
+    {'name': 'LAUrban/16thStreetMall_0838.JPG', 'path': 'LAUrban/16thStreetMall_0838.JPG'},
+    {'name': 'LAUrban/Billings_0276.JPG', 'path': 'LAUrban/Billings_0276.JPG'},
+    {'name': 'LAUrban/Billings_0290.JPG', 'path': 'LAUrban/Billings_0290.JPG'},
+    {'name': 'LAUrban/Bozeman_0008.JPG', 'path': 'LAUrban/Bozeman_0008.JPG'},
+    {'name': 'LAUrban/Bozeman_0044.JPG', 'path': 'LAUrban/Bozeman_0044.JPG'},
+    {'name': 'LAUrban/Downtown_0367.jpg', 'path': 'LAUrban/Downtown_0367.jpg'},
+    {'name': 'LAUrban/Downtown_0390.jpg', 'path': 'LAUrban/Downtown_0390.jpg'},
+    {'name': 'LAUrban/DTC_21.jpg', 'path': 'LAUrban/DTC_21.jpg'},
+    {'name': 'LAUrban/DU_17.jpg', 'path': 'LAUrban/DU_17.jpg'},
+    {'name': 'LAUrban/DU_35.jpg', 'path': 'LAUrban/DU_35.jpg'},
+    {'name': 'LAUrban/Golden_30.jpg', 'path': 'LAUrban/Golden_30.jpg'},
+    {'name': 'LAUrban/Golden_49.jpg', 'path': 'LAUrban/Golden_49.jpg'},
+    {'name': 'LAUrban/Golden_65.jpg', 'path': 'LAUrban/Golden_65.jpg'},
+    {'name': 'LAUrban/Urban_Berman_35.jpg', 'path': 'LAUrban/Urban_Berman_35.jpg'},
+    {'name': 'LAUrban/Vacation_5018.JPG', 'path': 'LAUrban/Vacation_5018.JPG'},
+    {'name': 'LAUrban/Vacation_8448.JPG', 'path': 'LAUrban/Vacation_8448.JPG'},
+    {'name': 'LAUrban/Vacation_8664.JPG', 'path': 'LAUrban/Vacation_8664.JPG'},
+    {'name': 'HANature/Berman_Nature__17.jpg', 'path': 'HANature/Berman_Nature__17.jpg'},
+    {'name': 'HANature/Berman_Nature__34.jpg', 'path': 'HANature/Berman_Nature__34.jpg'},
+    {'name': 'HANature/Berman_Nature__43.jpg', 'path': 'HANature/Berman_Nature__43.jpg'},
+    {'name': 'HANature/Berman_Nature__49.jpg', 'path': 'HANature/Berman_Nature__49.jpg'},
+    {'name': 'HANature/Castlewood_Canyon_6.jpg', 'path': 'HANature/Castlewood_Canyon_6.jpg'},
+    {'name': 'HANature/Hyalite_0159.JPG', 'path': 'HANature/Hyalite_0159.JPG'},
+    {'name': 'HANature/Hyalite_0222.JPG', 'path': 'HANature/Hyalite_0222.JPG'},
+    {'name': 'HANature/Hyalite_0236.JPG', 'path': 'HANature/Hyalite_0236.JPG'},
+    {'name': 'HANature/Hyalite_0238.JPG', 'path': 'HANature/Hyalite_0238.JPG'},
+    {'name': 'HANature/Ranch_1.jpeg', 'path': 'HANature/Ranch_1.jpeg'},
+    {'name': 'HANature/Tarryall_0613.JPG', 'path': 'HANature/Tarryall_0613.JPG'},
+    {'name': 'HANature/Tarryall_0620.JPG', 'path': 'HANature/Tarryall_0620.JPG'},
+    {'name': 'HANature/Vacation_1443.JPG', 'path': 'HANature/Vacation_1443.JPG'},
+    {'name': 'HANature/Vacation_2695.JPG', 'path': 'HANature/Vacation_2695.JPG'},
+    {'name': 'HANature/Vacation_5512.JPG', 'path': 'HANature/Vacation_5512.JPG'},
+    {'name': 'HANature/Vacation_5554.JPG', 'path': 'HANature/Vacation_5554.JPG'},
+    {'name': 'HANature/Vacation_5665.JPG', 'path': 'HANature/Vacation_5665.JPG'},
+    {'name': 'HANature/Vacation_6301.JPG', 'path': 'HANature/Vacation_6301.JPG'},
+    {'name': 'HANature/Vacation_7001.JPG', 'path': 'HANature/Vacation_7001.JPG'},
+    {'name': 'HANature/Vacation_7683.JPG', 'path': 'HANature/Vacation_7683.JPG'},
+    {'name': 'HAUrban/Billings_0250.JPG', 'path': 'HAUrban/Billings_0250.JPG'},
+    {'name': 'HAUrban/Billings_0285.JPG', 'path': 'HAUrban/Billings_0285.JPG'},
+    {'name': 'HAUrban/Billings_0306.JPG', 'path': 'HAUrban/Billings_0306.JPG'},
+    {'name': 'HAUrban/Billings_0313.JPG', 'path': 'HAUrban/Billings_0313.JPG'},
+    {'name': 'HAUrban/Bozeman_0049.JPG', 'path': 'HAUrban/Bozeman_0049.JPG'},
+    {'name': 'HAUrban/CO_Blvrd_14.jpg', 'path': 'HAUrban/CO_Blvrd_14.jpg'},
+    {'name': 'HAUrban/CO_Blvrd_23.jpg', 'path': 'HAUrban/CO_Blvrd_23.jpg'},
+    {'name': 'HAUrban/CO_Blvrd_38.jpg', 'path': 'HAUrban/CO_Blvrd_38.jpg'},
+    {'name': 'HAUrban/CO_Blvrd_9.jpg', 'path': 'HAUrban/CO_Blvrd_9.jpg'},
+    {'name': 'HAUrban/Downtown_0317.jpg', 'path': 'HAUrban/Downtown_0317.jpg'},
+    {'name': 'HAUrban/Downtown_0341.jpg', 'path': 'HAUrban/Downtown_0341.jpg'},
+    {'name': 'HAUrban/Downtown_0346.jpg', 'path': 'HAUrban/Downtown_0346.jpg'},
+    {'name': 'HAUrban/Downtown_0387.jpg', 'path': 'HAUrban/Downtown_0387.jpg'},
+    {'name': 'HAUrban/DTC_13.jpg', 'path': 'HAUrban/DTC_13.jpg'},
+    {'name': 'HAUrban/DU_19.jpg', 'path': 'HAUrban/DU_19.jpg'},
+    {'name': 'HAUrban/DU_38.jpg', 'path': 'HAUrban/DU_38.jpg'},
+    {'name': 'HAUrban/DU_43.jpg', 'path': 'HAUrban/DU_43.jpg'},
+    {'name': 'HAUrban/Golden_62.jpg', 'path': 'HAUrban/Golden_62.jpg'},
+    {'name': 'HAUrban/Golden_77.jpg', 'path': 'HAUrban/Golden_77.jpg'},
+    {'name': 'HAUrban/Urban_Berman_19.jpg', 'path': 'HAUrban/Urban_Berman_19.jpg'},
+    {'name': 'LANature/03L.jpg', 'path': 'LANature/03L.jpg'},
+    {'name': 'LANature/06L.jpg', 'path': 'LANature/06L.jpg'},
+    {'name': 'LANature/15H.jpg', 'path': 'LANature/15H.jpg'},
+    {'name': 'LANature/20L.jpg', 'path': 'LANature/20L.jpg'},
+    {'name': 'LANature/25L.jpg', 'path': 'LANature/25L.jpg'},
+    {'name': 'LANature/29L.jpg', 'path': 'LANature/29L.jpg'},
+    {'name': 'LANature/34L.jpg', 'path': 'LANature/34L.jpg'},
+    {'name': 'LANature/Aquarium_0325.JPG', 'path': 'LANature/Aquarium_0325.JPG'},
+    {'name': 'LANature/Aquarium_0465.JPG', 'path': 'LANature/Aquarium_0465.JPG'},
+    {'name': 'LANature/Aquarium_0660.JPG', 'path': 'LANature/Aquarium_0660.JPG'},
+    {'name': 'LANature/BotanicGardens_0836.JPG', 'path': 'LANature/BotanicGardens_0836.JPG'},
+    {'name': 'LANature/BotanicGardens_0947.JPG', 'path': 'LANature/BotanicGardens_0947.JPG'},
+    {'name': 'LANature/BotanicGardens_0997.JPG', 'path': 'LANature/BotanicGardens_0997.JPG'},
+    {'name': 'LANature/GotG_0072.jpg', 'path': 'LANature/GotG_0072.jpg'},
+    {'name': 'LANature/Hyalite_0093.JPG', 'path': 'LANature/Hyalite_0093.JPG'},
+    {'name': 'LANature/Hyalite_0191.JPG', 'path': 'LANature/Hyalite_0191.JPG'},
+    {'name': 'LANature/Vacation_5781.JPG', 'path': 'LANature/Vacation_5781.JPG'},
+    {'name': 'LANature/Vacation_7080.JPG', 'path': 'LANature/Vacation_7080.JPG'},
+    {'name': 'LANature/Vacation_7919.JPG', 'path': 'LANature/Vacation_7919.JPG'},
+    {'name': 'LANature/Zoo_0172.JPG', 'path': 'LANature/Zoo_0172.JPG'},
+    {'name': 'LAUrban/16thStreetMall_0756.JPG', 'path': 'LAUrban/16thStreetMall_0756.JPG'},
+    {'name': 'LAUrban/16thStreetMall_0782.JPG', 'path': 'LAUrban/16thStreetMall_0782.JPG'},
+    {'name': 'LAUrban/16thStreetMall_0813.JPG', 'path': 'LAUrban/16thStreetMall_0813.JPG'},
+    {'name': 'LAUrban/Billings_0274.JPG', 'path': 'LAUrban/Billings_0274.JPG'},
+    {'name': 'LAUrban/Billings_0280.JPG', 'path': 'LAUrban/Billings_0280.JPG'},
+    {'name': 'LAUrban/Billings_0317.JPG', 'path': 'LAUrban/Billings_0317.JPG'},
+    {'name': 'LAUrban/Bozeman_0012.JPG', 'path': 'LAUrban/Bozeman_0012.JPG'},
+    {'name': 'LAUrban/CO_Blvrd_40.jpg', 'path': 'LAUrban/CO_Blvrd_40.jpg'},
+    {'name': 'LAUrban/Downtown_0348.jpg', 'path': 'LAUrban/Downtown_0348.jpg'},
+    {'name': 'LAUrban/Downtown_0381.jpg', 'path': 'LAUrban/Downtown_0381.jpg'},
+    {'name': 'LAUrban/DTC_19.jpg', 'path': 'LAUrban/DTC_19.jpg'},
+    {'name': 'LAUrban/DTC_50.jpg', 'path': 'LAUrban/DTC_50.jpg'},
+    {'name': 'LAUrban/Golden_18.jpg', 'path': 'LAUrban/Golden_18.jpg'},
+    {'name': 'LAUrban/Golden_33.jpg', 'path': 'LAUrban/Golden_33.jpg'},
+    {'name': 'LAUrban/Golden_55.jpg', 'path': 'LAUrban/Golden_55.jpg'},
+    {'name': 'LAUrban/Urban_Berman_06.jpg', 'path': 'LAUrban/Urban_Berman_06.jpg'},
+    {'name': 'LAUrban/Urban_Berman_27.jpg', 'path': 'LAUrban/Urban_Berman_27.jpg'},
+    {'name': 'LAUrban/Urban_Berman_40.jpg', 'path': 'LAUrban/Urban_Berman_40.jpg'},
+    {'name': 'LAUrban/Vacation_8420.JPG', 'path': 'LAUrban/Vacation_8420.JPG'},
+    {'name': 'LAUrban/Vacation_8585.JPG', 'path': 'LAUrban/Vacation_8585.JPG'},
+    {'name': 'HANature/Berman_Nature__19.jpg', 'path': 'HANature/Berman_Nature__19.jpg'},
+    {'name': 'HANature/Berman_Nature__36.jpg', 'path': 'HANature/Berman_Nature__36.jpg'},
+    {'name': 'HANature/Berman_Nature__46.jpg', 'path': 'HANature/Berman_Nature__46.jpg'},
+    {'name': 'HANature/BotanicGardens_0043.JPG', 'path': 'HANature/BotanicGardens_0043.JPG'},
+    {'name': 'HANature/BotanicGardens_0893.JPG', 'path': 'HANature/BotanicGardens_0893.JPG'},
+    {'name': 'HANature/Hyalite_0141.JPG', 'path': 'HANature/Hyalite_0141.JPG'},
+    {'name': 'HANature/Hyalite_0229.JPG', 'path': 'HANature/Hyalite_0229.JPG'},
+    {'name': 'HANature/Hyalite_0231.JPG', 'path': 'HANature/Hyalite_0231.JPG'},
+    {'name': 'HANature/Hyalite_0239.JPG', 'path': 'HANature/Hyalite_0239.JPG'},
+    {'name': 'HANature/Ranch_4.jpeg', 'path': 'HANature/Ranch_4.jpeg'},
+    {'name': 'HANature/Tarryall_0607.JPG', 'path': 'HANature/Tarryall_0607.JPG'},
+    {'name': 'HANature/Vacation_0924.JPG', 'path': 'HANature/Vacation_0924.JPG'},
+    {'name': 'HANature/Vacation_2692.JPG', 'path': 'HANature/Vacation_2692.JPG'},
+    {'name': 'HANature/Vacation_5473.JPG', 'path': 'HANature/Vacation_5473.JPG'},
+    {'name': 'HANature/Vacation_5514.JPG', 'path': 'HANature/Vacation_5514.JPG'},
+    {'name': 'HANature/Vacation_5647.JPG', 'path': 'HANature/Vacation_5647.JPG'},
+    {'name': 'HANature/Vacation_5661.JPG', 'path': 'HANature/Vacation_5661.JPG'},
+    {'name': 'HANature/Vacation_5672.JPG', 'path': 'HANature/Vacation_5672.JPG'},
+    {'name': 'HANature/Vacation_6668.JPG', 'path': 'HANature/Vacation_6668.JPG'},
+    {'name': 'HANature/Vacation_7629.JPG', 'path': 'HANature/Vacation_7629.JPG'},
+    {'name': 'HAUrban/16thStreetMall_0760.JPG', 'path': 'HAUrban/16thStreetMall_0760.JPG'},
+    {'name': 'HAUrban/Billings_0270.JPG', 'path': 'HAUrban/Billings_0270.JPG'},
+    {'name': 'HAUrban/Billings_0295.JPG', 'path': 'HAUrban/Billings_0295.JPG'},
+    {'name': 'HAUrban/Billings_0309.JPG', 'path': 'HAUrban/Billings_0309.JPG'},
+    {'name': 'HAUrban/CO_Blvrd_12.jpg', 'path': 'HAUrban/CO_Blvrd_12.jpg'},
+    {'name': 'HAUrban/CO_Blvrd_22.jpg', 'path': 'HAUrban/CO_Blvrd_22.jpg'},
+    {'name': 'HAUrban/CO_Blvrd_3.jpg', 'path': 'HAUrban/CO_Blvrd_3.jpg'},
+    {'name': 'HAUrban/CO_Blvrd_41.jpg', 'path': 'HAUrban/CO_Blvrd_41.jpg'},
+    {'name': 'HAUrban/Downtown_0304.jpg', 'path': 'HAUrban/Downtown_0304.jpg'},
+    {'name': 'HAUrban/Downtown_0324.jpg', 'path': 'HAUrban/Downtown_0324.jpg'},
+    {'name': 'HAUrban/Downtown_0344.jpg', 'path': 'HAUrban/Downtown_0344.jpg'},
+    {'name': 'HAUrban/Downtown_0351.jpg', 'path': 'HAUrban/Downtown_0351.jpg'},
+    {'name': 'HAUrban/Downtown_0354.jpg', 'path': 'HAUrban/Downtown_0354.jpg'},
+    {'name': 'HAUrban/DTC_12.jpg', 'path': 'HAUrban/DTC_12.jpg'},
+    {'name': 'HAUrban/DTC_47.jpg', 'path': 'HAUrban/DTC_47.jpg'},
+    {'name': 'HAUrban/DU_24.jpg', 'path': 'HAUrban/DU_24.jpg'},
+    {'name': 'HAUrban/Golden_40.jpg', 'path': 'HAUrban/Golden_40.jpg'},
+    {'name': 'HAUrban/Golden_64.jpg', 'path': 'HAUrban/Golden_64.jpg'},
+    {'name': 'HAUrban/Golden_78.jpg', 'path': 'HAUrban/Golden_78.jpg'},
+    {'name': 'HAUrban/Urban_Berman_24.jpg', 'path': 'HAUrban/Urban_Berman_24.jpg'},
+    {'name': 'LANature/05H.jpg', 'path': 'LANature/05H.jpg'},
+    {'name': 'LANature/09L.jpg', 'path': 'LANature/09L.jpg'},
+    {'name': 'LANature/17H.jpg', 'path': 'LANature/17H.jpg'},
+    {'name': 'LANature/23L.jpg', 'path': 'LANature/23L.jpg'},
+    {'name': 'LANature/28L.jpg', 'path': 'LANature/28L.jpg'},
+    {'name': 'LANature/31H.jpg', 'path': 'LANature/31H.jpg'},
+    {'name': 'LANature/39H.jpg', 'path': 'LANature/39H.jpg'},
+    {'name': 'LANature/Aquarium_0343.JPG', 'path': 'LANature/Aquarium_0343.JPG'},
+    {'name': 'LANature/Aquarium_0450.JPG', 'path': 'LANature/Aquarium_0450.JPG'},
+    {'name': 'LANature/Aquarium_0632.JPG', 'path': 'LANature/Aquarium_0632.JPG'},
+    {'name': 'LANature/BotanicGardens_0497.JPG', 'path': 'LANature/BotanicGardens_0497.JPG'},
+    {'name': 'LANature/BotanicGardens_0941.JPG', 'path': 'LANature/BotanicGardens_0941.JPG'},
+    {'name': 'LANature/GotG_0053.jpg', 'path': 'LANature/GotG_0053.jpg'},
+    {'name': 'LANature/GotG_0084.jpg', 'path': 'LANature/GotG_0084.jpg'},
+    {'name': 'LANature/Hyalite_0174.JPG', 'path': 'LANature/Hyalite_0174.JPG'},
+    {'name': 'LANature/Hyalite_0213.JPG', 'path': 'LANature/Hyalite_0213.JPG'},
+    {'name': 'LANature/Vacation_1925.JPG', 'path': 'LANature/Vacation_1925.JPG'},
+    {'name': 'LANature/Vacation_7074.JPG', 'path': 'LANature/Vacation_7074.JPG'},
+    {'name': 'LANature/Vacation_7115.JPG', 'path': 'LANature/Vacation_7115.JPG'},
+    {'name': 'LANature/Zoo_0075.JPG', 'path': 'LANature/Zoo_0075.JPG'},
+    {'name': 'LAUrban/16thStreetMall_0744.JPG', 'path': 'LAUrban/16thStreetMall_0744.JPG'},
+    {'name': 'LAUrban/16thStreetMall_0771.JPG', 'path': 'LAUrban/16thStreetMall_0771.JPG'},
+    {'name': 'LAUrban/16thStreetMall_0806.JPG', 'path': 'LAUrban/16thStreetMall_0806.JPG'},
+    {'name': 'LAUrban/Billings_0266.JPG', 'path': 'LAUrban/Billings_0266.JPG'},
+    {'name': 'LAUrban/Billings_0286.JPG', 'path': 'LAUrban/Billings_0286.JPG'},
+    {'name': 'LAUrban/Bozeman_0005.JPG', 'path': 'LAUrban/Bozeman_0005.JPG'},
+    {'name': 'LAUrban/Bozeman_0038.JPG', 'path': 'LAUrban/Bozeman_0038.JPG'},
+    {'name': 'LAUrban/Downtown_0299.jpg', 'path': 'LAUrban/Downtown_0299.jpg'},
+    {'name': 'LAUrban/Downtown_0371.jpg', 'path': 'LAUrban/Downtown_0371.jpg'},
+    {'name': 'LAUrban/DTC_1.jpg', 'path': 'LAUrban/DTC_1.jpg'},
+    {'name': 'LAUrban/DTC_41.jpg', 'path': 'LAUrban/DTC_41.jpg'},
+    {'name': 'LAUrban/DU_18.jpg', 'path': 'LAUrban/DU_18.jpg'},
+    {'name': 'LAUrban/DU_23.jpg', 'path': 'LAUrban/DU_23.jpg'},
+    {'name': 'LAUrban/Golden_24.jpg', 'path': 'LAUrban/Golden_24.jpg'},
+    {'name': 'LAUrban/Golden_48.jpg', 'path': 'LAUrban/Golden_48.jpg'},
+    {'name': 'LAUrban/Golden_59.jpg', 'path': 'LAUrban/Golden_59.jpg'},
+    {'name': 'LAUrban/Urban_Berman_25.jpg', 'path': 'LAUrban/Urban_Berman_25.jpg'},
+    {'name': 'LAUrban/Urban_Berman_37.jpg', 'path': 'LAUrban/Urban_Berman_37.jpg'},
+    {'name': 'LAUrban/Vacation_5135.JPG', 'path': 'LAUrban/Vacation_5135.JPG'},
+    {'name': 'LAUrban/Vacation_8493.JPG', 'path': 'LAUrban/Vacation_8493.JPG'},
     {'name': 'Beach 2.jpg', 'path': 'Beach 2.jpg'},
     {'name': 'default.png', 'path': 'https://pavlovia.org/assets/default/default.png'},
+    {'name': 'test.csv', 'path': 'test.csv'},
   ]
 });
 
@@ -190,7 +352,7 @@ async function updateInfo() {
   currentLoop = psychoJS.experiment;  // right now there are no loops
   expInfo['date'] = util.MonotonicClock.getDateStr();  // add a simple timestamp
   expInfo['expName'] = expName;
-  expInfo['psychopyVersion'] = '2024.2.5';
+  expInfo['psychopyVersion'] = '2024.2.4';
   expInfo['OS'] = window.navigator.platform;
 
 
@@ -203,10 +365,11 @@ async function updateInfo() {
 
   // add info from the URL:
   util.addInfoFromUrl(expInfo);
-  
+  psychoJS.setRedirectUrls('https://csbsutah.co1.qualtrics.com/jfe/form/SV_bkO77dxG6dtzM58', 'https://csbsutah.co1.qualtrics.com/jfe/form/SV_bkO77dxG6dtzM58');
+
 
   
-  psychoJS.experiment.dataFileName = (("." + "/") + `data/raw_${expInfo["participant"]}`);
+  psychoJS.experiment.dataFileName = (("." + "/") + `data/raw_${expInfo["Please keep this number!"]}`);
   psychoJS.experiment.field_separator = '\t';
 
 
@@ -276,6 +439,7 @@ var text_3;
 var key_resp_2;
 var endClock;
 var text_2;
+var text_6;
 var globalClock;
 var routineTimer;
 async function experimentInit() {
@@ -390,7 +554,7 @@ async function experimentInit() {
     draggable: false, 
     anchor: 'center', 
     lineWidth: 1.0, 
-    lineColor: undefined, 
+    lineColor: new util.Color('gray'), 
     fillColor: new util.Color('gray'), 
     colorSpace: 'rgb', 
     opacity: 1.0, 
@@ -406,7 +570,7 @@ async function experimentInit() {
     draggable: false, 
     anchor: 'center', 
     lineWidth: 1.0, 
-    lineColor: undefined, 
+    lineColor: new util.Color('gray'), 
     fillColor: new util.Color('gray'), 
     colorSpace: 'rgb', 
     opacity: undefined, 
@@ -486,7 +650,7 @@ async function experimentInit() {
     win: psychoJS.window, name: 'slider',
     startValue: 50,
     size: [1.0, 0.1], pos: [0, 0], ori: 0.0, units: 'height',
-    labels: [0, 25, 50, 75, 100], fontSize: 0.035, ticks: [0, 25, 50, 75, 100],
+    labels: [0, 100], fontSize: 0.035, ticks: [0, 100],
     granularity: 0.0, style: ["SLIDER", "TRIANGLE_MARKER"],
     color: new util.Color('LightGray'), markerColor: new util.Color('Red'), lineColor: new util.Color('DarkGray'), 
     opacity: 1.0, fontFamily: 'Open Sans', bold: true, italic: false, depth: -1, 
@@ -630,7 +794,7 @@ async function experimentInit() {
     draggable: false, 
     anchor: 'center', 
     lineWidth: 1.0, 
-    lineColor: undefined, 
+    lineColor: new util.Color('gray'), 
     fillColor: new util.Color('gray'), 
     colorSpace: 'rgb', 
     opacity: 1.0, 
@@ -646,7 +810,7 @@ async function experimentInit() {
     draggable: false, 
     anchor: 'center', 
     lineWidth: 1.0, 
-    lineColor: undefined, 
+    lineColor: new util.Color('gray'), 
     fillColor: new util.Color('gray'), 
     colorSpace: 'rgb', 
     opacity: 1.0, 
@@ -726,7 +890,7 @@ async function experimentInit() {
     win: psychoJS.window, name: 'vast_answer',
     startValue: 50,
     size: [1.0, 0.1], pos: [0, 0], ori: 0.0, units: 'height',
-    labels: [0, 25, 50, 75, 100], fontSize: 0.035, ticks: [0, 25, 50, 75, 100],
+    labels: [0, 100], fontSize: 0.035, ticks: [0, 100],
     granularity: 0.0, style: ["SLIDER", "TRIANGLE_MARKER"],
     color: new util.Color('LightGray'), markerColor: new util.Color('Red'), lineColor: new util.Color('DarkGray'), 
     opacity: 1.0, fontFamily: 'Open Sans', bold: true, italic: false, depth: -1, 
@@ -758,7 +922,7 @@ async function experimentInit() {
     pos: [0, 0.25], draggable: false, height: 0.03,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('gray'),  opacity: undefined,
-    depth: -5.0 
+    depth: -4.0 
   });
   
   // Initialize components for Routine "catch"
@@ -782,13 +946,25 @@ async function experimentInit() {
   text_2 = new visual.TextStim({
     win: psychoJS.window,
     name: 'text_2',
-    text: 'Thank you for participating!',
+    text: 'Please remember this number, you will need to enter it on the next page:',
     font: 'Arial',
     units: 'height', 
     pos: [0, 0], draggable: false, height: 0.035,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
     depth: 0.0 
+  });
+  
+  text_6 = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_6',
+    text: "expInfo['Please keep this number!']",
+    font: 'Arial',
+    units: undefined, 
+    pos: [0, 0], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color('white'),  opacity: undefined,
+    depth: -1.0 
   });
   
   // Create some handy timers
@@ -1976,7 +2152,7 @@ function trialsLoopBegin(trialsLoopScheduler, snapshot) {
       psychoJS: psychoJS,
       nReps: 1, method: TrialHandler.Method.SEQUENTIAL,
       extraInfo: expInfo, originPath: undefined,
-      trialList: TrialHandler.importConditions(psychoJS.serverManager, 'ppt.image.durations.xlsx', 'list(range(80))'),
+      trialList: TrialHandler.importConditions(psychoJS.serverManager, 'image.durations.full.csv', Array.from({length: image_durations_full_csv.length}, (_, i) => i).filter(i => image_durations_full_csv[i].group == expInfo['What letter were you given?'])),
       seed: undefined, name: 'trials'
     });
     psychoJS.experiment.addLoop(trials); // add the loop to the experiment
@@ -2303,7 +2479,7 @@ function ImageRoutineBegin(snapshot) {
     routineTimer.reset();
     ImageMaxDurationReached = false;
     // update component parameters for each repeat
-    image.setImage(image_name);
+    image.setImage(imagename);
     psychoJS.experiment.addData('Image.started', globalClock.getTime());
     ImageMaxDuration = null
     // keep track of which components have finished
@@ -3282,6 +3458,7 @@ function endRoutineBegin(snapshot) {
     // keep track of which components have finished
     endComponents = [];
     endComponents.push(text_2);
+    endComponents.push(text_6);
     
     for (const thisComponent of endComponents)
       if ('status' in thisComponent)
@@ -3306,6 +3483,16 @@ function endRoutineEachFrame() {
       text_2.frameNStart = frameN;  // exact frame index
       
       text_2.setAutoDraw(true);
+    }
+    
+    
+    // *text_6* updates
+    if (t >= 0.0 && text_6.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      text_6.tStart = t;  // (not accounting for frame time here)
+      text_6.frameNStart = frameN;  // exact frame index
+      
+      text_6.setAutoDraw(true);
     }
     
     // check for quit (typically the Esc key)
