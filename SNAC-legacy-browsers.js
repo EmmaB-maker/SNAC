@@ -85,7 +85,7 @@ psychoJS.start({
   expInfo: expInfo,
   resources: [
     // resources:
-    {'name': 'image.durations.full.csv', 'path': 'image.durations.full.csv'},
+    {'name': 'trials.csv', 'path': 'trials.csv'},
     {'name': 'HANature/Berman_Nature__32.jpg', 'path': 'HANature/Berman_Nature__32.jpg'},
     {'name': 'HANature/Berman_Nature__41.jpg', 'path': 'HANature/Berman_Nature__41.jpg'},
     {'name': 'HANature/Berman_Nature__45.jpg', 'path': 'HANature/Berman_Nature__45.jpg'},
@@ -328,7 +328,6 @@ psychoJS.start({
     {'name': 'LAUrban/Vacation_8493.JPG', 'path': 'LAUrban/Vacation_8493.JPG'},
     {'name': 'Beach 2.jpg', 'path': 'Beach 2.jpg'},
     {'name': 'default.png', 'path': 'https://pavlovia.org/assets/default/default.png'},
-    {'name': 'image.durations.full.csv', 'path': 'image.durations.full.csv'},
     {'name': 'LANature/BotanicGardens_0836.JPG', 'path': 'LANature/BotanicGardens_0836.JPG'},
     {'name': 'LANature/BotanicGardens_0924.JPG', 'path': 'LANature/BotanicGardens_0924.JPG'},
     {'name': 'LANature/BotanicGardens_0941.JPG', 'path': 'LANature/BotanicGardens_0941.JPG'},
@@ -2302,7 +2301,7 @@ function trialsLoopBegin(trialsLoopScheduler, snapshot) {
       psychoJS: psychoJS,
       nReps: 1, method: TrialHandler.Method.SEQUENTIAL,
       extraInfo: expInfo, originPath: undefined,
-      trialList: TrialHandler.importConditions(psychoJS.serverManager, 'image.durations.full.csv', Array.from({length: image.durations.full.csv.length}, (_, i) => i).filter(i => image.durations.full.csv[i].group == expInfo['What letter were you given?'])),
+      trialList: TrialHandler.importConditions(psychoJS.serverManager, 'trials.csv', Array.from({length: trials.csv.length}, (_, i) => i).filter(i => trials.csv[i].group == expInfo['What letter were you given?'])),
       seed: undefined, name: 'trials'
     });
     psychoJS.experiment.addLoop(trials); // add the loop to the experiment
