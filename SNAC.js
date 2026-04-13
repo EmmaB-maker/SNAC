@@ -46,9 +46,6 @@ psychoJS.scheduleCondition(function() { return (psychoJS.gui.dialogComponent.but
 // flowScheduler gets run if the participants presses OK
 flowScheduler.add(updateInfo); // add timeStamp
 flowScheduler.add(experimentInit);
-flowScheduler.add(set_upRoutineBegin());
-flowScheduler.add(set_upRoutineEachFrame());
-flowScheduler.add(set_upRoutineEnd());
 flowScheduler.add(start_pRoutineBegin());
 flowScheduler.add(start_pRoutineEachFrame());
 flowScheduler.add(start_pRoutineEnd());
@@ -377,7 +374,6 @@ async function updateInfo() {
 }
 
 
-var set_upClock;
 var start_pClock;
 var text_15;
 var key_resp_3;
@@ -443,8 +439,6 @@ var text_6;
 var globalClock;
 var routineTimer;
 async function experimentInit() {
-  // Initialize components for Routine "set_up"
-  set_upClock = new util.Clock();
   // Initialize components for Routine "start_p"
   start_pClock = new util.Clock();
   text_15 = new visual.TextStim({
@@ -452,10 +446,10 @@ async function experimentInit() {
     name: 'text_15',
     text: 'Click the spacebar to start the practice trial.',
     font: 'Arial',
-    units: 'height', 
+    units: 'norm', 
     pos: [0, 0], draggable: false, height: 0.055,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('black'),  opacity: undefined,
+    color: new util.Color('black'),  opacity: 1.0,
     depth: 0.0 
   });
   
@@ -471,7 +465,7 @@ async function experimentInit() {
     units: 'norm', 
     pos: [0, 0], draggable: false, height: 0.1,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('black'),  opacity: undefined,
+    color: new util.Color('black'),  opacity: 1.0,
     depth: 0.0 
   });
   
@@ -497,10 +491,10 @@ async function experimentInit() {
     name: 'text_10',
     text: 'Please answer the addition problem.',
     font: 'Arial',
-    units: 'height', 
+    units: 'norm', 
     pos: [0, 0.15], draggable: false, height: 0.055,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('black'),  opacity: undefined,
+    color: new util.Color('black'),  opacity: 1.0,
     depth: 0.0 
   });
   
@@ -509,10 +503,10 @@ async function experimentInit() {
     name: 'p_a',
     text: '48',
     font: 'Arial',
-    units: 'height', 
+    units: 'norm', 
     pos: [(- 0.1), (- 0.075)], draggable: false, height: 0.08,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('black'),  opacity: undefined,
+    color: new util.Color('black'),  opacity: 1.0,
     depth: -1.0 
   });
   
@@ -521,10 +515,10 @@ async function experimentInit() {
     name: 'p_b',
     text: '43',
     font: 'Arial',
-    units: 'height', 
+    units: 'norm', 
     pos: [0.1, (- 0.075)], draggable: false, height: 0.08,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('black'),  opacity: undefined,
+    color: new util.Color('black'),  opacity: 1.0,
     depth: -2.0 
   });
   
@@ -539,10 +533,10 @@ async function experimentInit() {
     name: 'text_11',
     text: 'Click the hourglass to start the timer',
     font: 'Arial',
-    units: 'height', 
+    units: 'norm', 
     pos: [0, 0.15], draggable: false, height: 0.055,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('black'),  opacity: undefined,
+    color: new util.Color('black'),  opacity: 1.0,
     depth: 0.0 
   });
   
@@ -589,10 +583,10 @@ async function experimentInit() {
     name: 'text_12',
     text: 'Click the hourglass to stop the timer',
     font: 'Arial',
-    units: 'height', 
+    units: 'norm', 
     pos: [0, 0.15], draggable: false, height: 0.055,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('black'),  opacity: undefined,
+    color: new util.Color('black'),  opacity: 1.0,
     depth: 0.0 
   });
   
@@ -639,10 +633,10 @@ async function experimentInit() {
     name: 'text_13',
     text: 'How vast was the image?',
     font: 'Arial',
-    units: 'height', 
+    units: 'norm', 
     pos: [0, 0.15], draggable: false, height: 0.055,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('black'),  opacity: undefined,
+    color: new util.Color('black'),  opacity: 1.0,
     depth: 0.0 
   });
   
@@ -662,10 +656,10 @@ async function experimentInit() {
     name: 'text_14',
     text: 'Submit Score',
     font: 'Arial',
-    units: 'height', 
+    units: 'norm', 
     pos: [0, (- 0.17)], draggable: false, height: 0.035,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('gray'),  opacity: undefined,
+    color: new util.Color('gray'),  opacity: 1.0,
     depth: -2.0 
   });
   
@@ -678,10 +672,10 @@ async function experimentInit() {
     name: 'text_4',
     text: 'Vastness: a perceptual phenomenon that occurs when a space seems to extend to very far distances, seemingly without limit.',
     font: 'Arial',
-    units: 'height', 
+    units: 'norm', 
     pos: [0, 0.25], draggable: false, height: 0.03,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('gray'),  opacity: undefined,
+    color: new util.Color('gray'),  opacity: 1.0,
     depth: -4.0 
   });
   
@@ -692,10 +686,10 @@ async function experimentInit() {
     name: 'text',
     text: 'Press the spacebar to start the next trial.',
     font: 'Arial',
-    units: 'height', 
+    units: 'norm', 
     pos: [0, 0], draggable: false, height: 0.055,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('black'),  opacity: undefined,
+    color: new util.Color('black'),  opacity: 1.0,
     depth: 0.0 
   });
   
@@ -708,7 +702,7 @@ async function experimentInit() {
     name: 'math_equation',
     text: '',
     font: 'Arial',
-    units: 'height', 
+    units: 'norm', 
     pos: [0, 0], draggable: false, height: 0.055,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
@@ -737,7 +731,7 @@ async function experimentInit() {
     name: 'answers',
     text: 'Please answer the addition problem',
     font: 'Arial',
-    units: 'height', 
+    units: 'norm', 
     pos: [0, 0.15], draggable: false, height: 0.055,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
@@ -749,7 +743,7 @@ async function experimentInit() {
     name: 'answer_a',
     text: '',
     font: 'Arial',
-    units: 'height', 
+    units: 'norm', 
     pos: [(- 0.1), (- 0.075)], draggable: false, height: 0.08,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
@@ -761,7 +755,7 @@ async function experimentInit() {
     name: 'answer_b',
     text: '',
     font: 'Arial',
-    units: 'height', 
+    units: 'norm', 
     pos: [0.1, (- 0.075)], draggable: false, height: 0.08,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
@@ -779,7 +773,7 @@ async function experimentInit() {
     name: 'start_time',
     text: 'Click the hourglass to start the timer',
     font: 'Arial',
-    units: 'height', 
+    units: 'norm', 
     pos: [0, 0.15], draggable: false, height: 0.055,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
@@ -829,7 +823,7 @@ async function experimentInit() {
     name: 'end_time',
     text: 'Click the hourglass to stop the timer',
     font: 'Arial',
-    units: 'height', 
+    units: 'norm', 
     pos: [0, 0.15], draggable: false, height: 0.055,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
@@ -879,7 +873,7 @@ async function experimentInit() {
     name: 'vast',
     text: 'How vast was the image?',
     font: 'Arial',
-    units: 'height', 
+    units: 'norm', 
     pos: [0, 0.15], draggable: false, height: 0.055,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
@@ -902,7 +896,7 @@ async function experimentInit() {
     name: 'next',
     text: 'Submit Score',
     font: 'Arial',
-    units: 'height', 
+    units: 'norm', 
     pos: [0, (- 0.17)], draggable: false, height: 0.035,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('gray'),  opacity: 1.0,
@@ -918,10 +912,10 @@ async function experimentInit() {
     name: 'text_5',
     text: 'Vastness: a perceptual phenomenon that occurs when a space seems to extend to very far distances, seemingly without limit.',
     font: 'Arial',
-    units: 'height', 
+    units: 'norm', 
     pos: [0, 0.25], draggable: false, height: 0.03,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('gray'),  opacity: undefined,
+    color: new util.Color('gray'),  opacity: 1.0,
     depth: -4.0 
   });
   
@@ -932,10 +926,10 @@ async function experimentInit() {
     name: 'text_3',
     text: 'Press "c" to continue with the study.',
     font: 'Arial',
-    units: 'height', 
+    units: 'norm', 
     pos: [0, 0], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('black'),  opacity: undefined,
+    color: new util.Color('black'),  opacity: 1.0,
     depth: 0.0 
   });
   
@@ -948,7 +942,7 @@ async function experimentInit() {
     name: 'text_2',
     text: 'Please remember this number, you will need to enter it on the next page:',
     font: 'Arial',
-    units: 'height', 
+    units: 'norm', 
     pos: [0, 0], draggable: false, height: 0.035,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
@@ -960,10 +954,10 @@ async function experimentInit() {
     name: 'text_6',
     text: "expInfo['Please keep this number!']",
     font: 'Arial',
-    units: undefined, 
+    units: 'norm', 
     pos: [0, 0], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
-    color: new util.Color('white'),  opacity: undefined,
+    color: new util.Color('black'),  opacity: 1.0,
     depth: -1.0 
   });
   
@@ -978,89 +972,6 @@ async function experimentInit() {
 var t;
 var frameN;
 var continueRoutine;
-var set_upMaxDurationReached;
-var set_upMaxDuration;
-var set_upComponents;
-function set_upRoutineBegin(snapshot) {
-  return async function () {
-    TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
-    
-    //--- Prepare to start Routine 'set_up' ---
-    t = 0;
-    frameN = -1;
-    continueRoutine = true; // until we're told otherwise
-    set_upClock.reset();
-    routineTimer.reset();
-    set_upMaxDurationReached = false;
-    // update component parameters for each repeat
-    psychoJS.experiment.addData('set_up.started', globalClock.getTime());
-    set_upMaxDuration = null
-    // keep track of which components have finished
-    set_upComponents = [];
-    
-    for (const thisComponent of set_upComponents)
-      if ('status' in thisComponent)
-        thisComponent.status = PsychoJS.Status.NOT_STARTED;
-    return Scheduler.Event.NEXT;
-  }
-}
-
-
-function set_upRoutineEachFrame() {
-  return async function () {
-    //--- Loop for each frame of Routine 'set_up' ---
-    // get current time
-    t = set_upClock.getTime();
-    frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
-    // update/draw components on each frame
-    // check for quit (typically the Esc key)
-    if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
-      return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
-    }
-    
-    // check if the Routine should terminate
-    if (!continueRoutine) {  // a component has requested a forced-end of Routine
-      return Scheduler.Event.NEXT;
-    }
-    
-    continueRoutine = false;  // reverts to True if at least one component still running
-    for (const thisComponent of set_upComponents)
-      if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
-        continueRoutine = true;
-        break;
-      }
-    
-    // refresh the screen if continuing
-    if (continueRoutine) {
-      return Scheduler.Event.FLIP_REPEAT;
-    } else {
-      return Scheduler.Event.NEXT;
-    }
-  };
-}
-
-
-function set_upRoutineEnd(snapshot) {
-  return async function () {
-    //--- Ending Routine 'set_up' ---
-    for (const thisComponent of set_upComponents) {
-      if (typeof thisComponent.setAutoDraw === 'function') {
-        thisComponent.setAutoDraw(false);
-      }
-    }
-    psychoJS.experiment.addData('set_up.stopped', globalClock.getTime());
-    // the Routine "set_up" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset();
-    
-    // Routines running outside a loop should always advance the datafile row
-    if (currentLoop === psychoJS.experiment) {
-      psychoJS.experiment.nextEntry(snapshot);
-    }
-    return Scheduler.Event.NEXT;
-  }
-}
-
-
 var start_pMaxDurationReached;
 var _key_resp_3_allKeys;
 var start_pMaxDuration;
@@ -3322,6 +3233,10 @@ function catchRoutineBegin(snapshot) {
     key_resp_2.keys = undefined;
     key_resp_2.rt = undefined;
     _key_resp_2_allKeys = [];
+    // Run 'Begin Routine' code from code_2
+    if ((trials.thisN + 1) % 10 !== 0) {
+        continueRoutine = false;
+    }
     psychoJS.experiment.addData('catch.started', globalClock.getTime());
     catchMaxDuration = null
     // keep track of which components have finished
