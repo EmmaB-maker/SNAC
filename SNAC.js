@@ -446,6 +446,7 @@ var key_resp_2;
 var endClock;
 var text_2;
 var text_6;
+var text_7;
 var globalClock;
 var routineTimer;
 async function experimentInit() {
@@ -971,6 +972,18 @@ async function experimentInit() {
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
     depth: -1.0 
+  });
+  
+  text_7 = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'text_7',
+    text: "Press 'esc' twice whem you are done viewing the number",
+    font: 'Arial',
+    units: 'norm', 
+    pos: [0, (- 0.2)], draggable: false, height: 0.08,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color('black'),  opacity: 1.0,
+    depth: -3.0 
   });
   
   // Create some handy timers
@@ -3386,6 +3399,7 @@ function endRoutineBegin(snapshot) {
     endComponents = [];
     endComponents.push(text_2);
     endComponents.push(text_6);
+    endComponents.push(text_7);
     
     for (const thisComponent of endComponents)
       if ('status' in thisComponent)
@@ -3420,6 +3434,16 @@ function endRoutineEachFrame() {
       text_6.frameNStart = frameN;  // exact frame index
       
       text_6.setAutoDraw(true);
+    }
+    
+    
+    // *text_7* updates
+    if (t >= 0.0 && text_7.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      text_7.tStart = t;  // (not accounting for frame time here)
+      text_7.frameNStart = frameN;  // exact frame index
+      
+      text_7.setAutoDraw(true);
     }
     
     // check for quit (typically the Esc key)
@@ -3483,6 +3507,38 @@ async function quitPsychoJS(message, isCompleted) {
   if (psychoJS.experiment.isEntryEmpty()) {
     psychoJS.experiment.nextEntry();
   }
+  // Disable downloading results to browser
+  psychoJS._saveResults = 0;
+  
+  // Generate filename for results
+  let filename = expInfo['Please keep this number!'] + '_' + psychoJS._experiment._datetime + '.csv';
+  
+  // Extract data object from experiment
+  let dataObj = psychoJS._experiment._trialsData;
+  
+  // Convert data object to CSV
+  let data = [Object.keys(dataObj[0])].concat(dataObj).map(it => {
+      return Object.values(it).toString()
+  }).join('\n')
+  
+  // Send data to OSF via DataPipe
+  console.log('Saving data...');
+  fetch('https://pipe.jspsych.org/api/data', {
+      method: 'POST',
+      headers: {
+      'Content-Type': 'application/json',
+      Accept: '*/*',
+      },
+      body: JSON.stringify({
+      experimentID: 'Jbc9toAnfsBP', // * UPDATE WITH YOUR DATAPIEP EXPERIMENT ID *
+      filename: filename,
+      data: data,
+      }),
+  }).then(response => response.json()).then(data => {
+      // Log response and force experiment end
+      console.log(data);
+      quitPsychoJS();
+  });
   psychoJS.window.close();
   psychoJS.quit({message: message, isCompleted: isCompleted});
   
