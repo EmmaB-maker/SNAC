@@ -2300,9 +2300,9 @@ function trialsLoopBegin(trialsLoopScheduler, snapshot) {
     // set up handler to look after randomisation of conditions etc
     trials = new TrialHandler({
       psychoJS: psychoJS,
-      nReps: 1, method: TrialHandler.Method.SEQUENTIAL,
+      nReps: 1, method: TrialHandler.Method.RANDOM,
       extraInfo: expInfo, originPath: undefined,
-      trialList: 'trials.csv',
+      trialList: TrialHandler.importConditions(psychoJS.serverManager, 'trials.csv', Array.from({length: trials.length}, (_, i) => i).filter(i => trials[i].group == expInfo['What letter were you given?'])),
       seed: undefined, name: 'trials'
     });
     psychoJS.experiment.addLoop(trials); // add the loop to the experiment
