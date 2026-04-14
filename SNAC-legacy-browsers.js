@@ -7,7 +7,7 @@
 let expName = 'SNAC';  // from the Builder filename that created this script
 let expInfo = {
     'Please keep this number!': `${util.pad(Number.parseFloat(util.randint(0, 999)).toFixed(0), 3)}`,
-    'What letter were you given?': '',
+    'What letter were you given?': ["", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
 };
 
 // Start code blocks for 'Before Experiment'
@@ -449,7 +449,7 @@ async function experimentInit() {
     text: 'Click the spacebar to start the practice trial.',
     font: 'Arial',
     units: 'norm', 
-    pos: [0, 0], draggable: false, height: 0.5,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], draggable: false, height: 0.2,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
     depth: 0.0 
@@ -467,7 +467,7 @@ async function experimentInit() {
     text: '16 + 27',
     font: 'Arial',
     units: 'norm', 
-    pos: [0, 0], draggable: false, height: 0.5,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0], draggable: false, height: 0.2,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
     depth: 0.0 
@@ -496,7 +496,7 @@ async function experimentInit() {
     text: 'Please answer the addition problem.',
     font: 'Arial',
     units: 'norm', 
-    pos: [0, 0.15], draggable: false, height: 0.055,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0.15], draggable: false, height: 0.2,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
     depth: 0.0 
@@ -508,7 +508,7 @@ async function experimentInit() {
     text: '48',
     font: 'Arial',
     units: 'norm', 
-    pos: [(- 0.1), (- 0.075)], draggable: false, height: 0.08,  wrapWidth: undefined, ori: 0.0,
+    pos: [(- 0.1), (- 0.075)], draggable: false, height: 0.2,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
     depth: -1.0 
@@ -520,7 +520,7 @@ async function experimentInit() {
     text: '43',
     font: 'Arial',
     units: 'norm', 
-    pos: [0.1, (- 0.075)], draggable: false, height: 0.08,  wrapWidth: undefined, ori: 0.0,
+    pos: [0.1, (- 0.075)], draggable: false, height: 0.2,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
     depth: -2.0 
@@ -538,7 +538,7 @@ async function experimentInit() {
     text: 'Click the hourglass to start the timer',
     font: 'Arial',
     units: 'norm', 
-    pos: [0, 0.15], draggable: false, height: 0.055,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0.15], draggable: false, height: 0.2,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
     depth: 0.0 
@@ -588,7 +588,7 @@ async function experimentInit() {
     text: 'Click the hourglass to stop the timer',
     font: 'Arial',
     units: 'norm', 
-    pos: [0, 0.15], draggable: false, height: 0.055,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0.15], draggable: false, height: 0.2,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
     depth: 0.0 
@@ -638,7 +638,7 @@ async function experimentInit() {
     text: 'How vast was the image?',
     font: 'Arial',
     units: 'norm', 
-    pos: [0, 0.15], draggable: false, height: 0.055,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0.15], draggable: false, height: 0.2,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
     depth: 0.0 
@@ -661,7 +661,7 @@ async function experimentInit() {
     text: 'Submit Score',
     font: 'Arial',
     units: 'norm', 
-    pos: [0, (- 0.17)], draggable: false, height: 0.035,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, (- 0.17)], draggable: false, height: 0.15,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('gray'),  opacity: 1.0,
     depth: -2.0 
@@ -677,7 +677,7 @@ async function experimentInit() {
     text: 'Vastness: a perceptual phenomenon that occurs when a space seems to extend to very far distances, seemingly without limit.',
     font: 'Arial',
     units: 'norm', 
-    pos: [0, 0.25], draggable: false, height: 0.03,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0.25], draggable: false, height: 0.15,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('gray'),  opacity: 1.0,
     depth: -4.0 
