@@ -3306,10 +3306,10 @@ async function quitPsychoJS(message, isCompleted) {
   // Extract data object from experiment
   let dataObj = psychoJS._experiment._trialsData;
   
-  // Convert data object to CSV with headers
-  let headers = Object.keys(dataObj[0]);
-  let rows = dataObj.map(it => Object.values(it).toString());
-  let data = [headers.join(',')].concat(rows).join('\n');
+  // Convert data object to CSV
+  let data = [Object.keys(dataObj[0])].concat(dataObj).map(it => {
+      return Object.values(it).toString()
+  }).join('\n')
   
   // Send data to OSF via DataPipe
   console.log('Saving data...');
