@@ -3298,34 +3298,9 @@ async function quitPsychoJS(message, isCompleted) {
   // Extract data object from experiment
   let dataObj = psychoJS._experiment._trialsData;
   
-  // Function to flatten nested objects (if needed)
-  function flattenObject(ob, prefix = '') {
-      let result = {};
-      for (let key in ob) {
-          if (typeof ob[key] === 'object' && ob[key] !== null && !Array.isArray(ob[key])) {
-              Object.assign(result, flattenObject(ob[key], prefix + key + '_'));
-          } else {
-              result[prefix + key] = ob[key];
-          }
-      }
-      return result;
-  }
-  
-  // Convert each trial to flattened object and build CSV
-  let headers = Object.keys(flattenObject(dataObj[0]));
-  let rows = dataObj.map(trial => {
-      let flatTrial = flattenObject(trial);
-      return headers.map(header => {
-          let value = flatTrial[header];
-          // Handle commas, quotes, and line breaks in values
-          if (typeof value === 'string' && (value.includes(',') || value.includes('"') || value.includes('\n'))) {
-              value = '"' + value.replace(/"/g, '""') + '"';
-          }
-          return value !== undefined && value !== null ? value : '';
-      }).join(',');
-  });
-  
-  // Create CSV with headers and rows
+  // Convert data object to CSV with headers
+  let headers = Object.keys(dataObj[0]);
+  let rows = dataObj.map(it => Object.values(it).toString());
   let data = [headers.join(',')].concat(rows).join('\n');
   
   // Send data to OSF via DataPipe
@@ -3333,19 +3308,17 @@ async function quitPsychoJS(message, isCompleted) {
   fetch('https://pipe.jspsych.org/api/data', {
       method: 'POST',
       headers: {
-          'Content-Type': 'application/json',
-          'Accept': '*/*',
+      'Content-Type': 'application/json',
+      Accept: '*/*',
       },
       body: JSON.stringify({
-          experimentID: 'Jbc9toAnfsBP', // * UPDATE WITH YOUR DATAPIEP EXPERIMENT ID *
-          filename: filename,
-          data: data,
+      experimentID: 'Jbc9toAnfsBP', // * UPDATE WITH YOUR DATAPIEP EXPERIMENT ID *
+      filename: filename,
+      data: data,
       }),
   }).then(response => response.json()).then(data => {
+      // Log response and force experiment end
       console.log(data);
-      quitPsychoJS();
-  }).catch(error => {
-      console.error('Error saving data:', error);
       quitPsychoJS();
   });
   psychoJS.window.close();
