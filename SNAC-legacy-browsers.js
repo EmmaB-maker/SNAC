@@ -3301,7 +3301,7 @@ async function quitPsychoJS(message, isCompleted) {
   psychoJS._saveResults = 0;
   
   // Generate filename for results
-  let filename = expInfo['Please keep this number!'] + '_' + psychoJS._experiment._datetime + '.csv';
+  let filename = psychoJS._experiment._experimentName + '_' + psychoJS._experiment._datetime + '.csv';
   
   // Extract data object from experiment
   let dataObj = psychoJS._experiment._trialsData;
@@ -3320,7 +3320,7 @@ async function quitPsychoJS(message, isCompleted) {
       Accept: '*/*',
       },
       body: JSON.stringify({
-      experimentID: 'Jbc9toAnfsBP', // * UPDATE WITH YOUR DATAPIEP EXPERIMENT ID *
+      experimentID: 'XXXXXXXXXXXXX', // * UPDATE WITH YOUR DATAPIKE EXPERIMENT ID *
       filename: filename,
       data: data,
       }),
