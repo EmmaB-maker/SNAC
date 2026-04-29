@@ -352,9 +352,6 @@ psychoJS.start({
 
 psychoJS.experimentLogger.setLevel(core.Logger.ServerLevel.INFO);
 
-
-var currentLoop;
-var frameDur;
 async function updateInfo() {
   currentLoop = psychoJS.experiment;  // right now there are no loops
   expInfo['date'] = util.MonotonicClock.getDateStr();  // add a simple timestamp
@@ -383,72 +380,6 @@ async function updateInfo() {
   return Scheduler.Event.NEXT;
 }
 
-
-var start_pClock;
-var text_15;
-var key_resp_3;
-var p_equationClock;
-var text_9;
-var p_imageClock;
-var image_6;
-var p_math_answerClock;
-var text_10;
-var p_a;
-var p_b;
-var mouse;
-var p_time_startClock;
-var text_11;
-var polygon;
-var polygon_2;
-var mouse_2;
-var p_time_endClock;
-var text_12;
-var polygon_3;
-var polygon_4;
-var mouse_3;
-var p_vastnessClock;
-var text_13;
-var slider;
-var text_14;
-var mouse_4;
-var text_4;
-var start_eClock;
-var text;
-var key_resp;
-var equationsClock;
-var math_equation;
-var ImageClock;
-var image;
-var math_answerClock;
-var answers;
-var answer_a;
-var answer_b;
-var answer_end;
-var time_startClock;
-var start_time;
-var hg_start_bottom;
-var hg_start_top;
-var start_time_mouse;
-var time_endClock;
-var end_time;
-var hg_end_bottom;
-var hg_end_top;
-var end_time_mouse;
-var vastnessClock;
-var vast;
-var vast_answer;
-var next;
-var vast_mouse;
-var text_5;
-var catchClock;
-var text_3;
-var key_resp_2;
-var endClock;
-var text_2;
-var text_6;
-var text_7;
-var globalClock;
-var routineTimer;
 async function experimentInit() {
   // Initialize components for Routine "start_p"
   start_pClock = new util.Clock();
@@ -664,22 +595,6 @@ async function experimentInit() {
     flip: false,
   });
   
-  text_14 = new visual.TextStim({
-    win: psychoJS.window,
-    name: 'text_14',
-    text: 'Submit Score',
-    font: 'Arial',
-    units: 'norm', 
-    pos: [0, (- 0.18)], draggable: false, height: 0.08,  wrapWidth: undefined, ori: 0.0,
-    languageStyle: 'LTR',
-    color: new util.Color('gray'),  opacity: 1.0,
-    depth: -2.0 
-  });
-  
-  mouse_4 = new core.Mouse({
-    win: psychoJS.window,
-  });
-  mouse_4.mouseClock = new util.Clock();
   text_4 = new visual.TextStim({
     win: psychoJS.window,
     name: 'text_4',
@@ -689,8 +604,25 @@ async function experimentInit() {
     pos: [0, 0.3], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('gray'),  opacity: 1.0,
-    depth: -4.0 
+    depth: -2.0 
   });
+  
+  button = new visual.ButtonStim({
+    win: psychoJS.window,
+    name: 'button',
+    text: 'Submit Score',
+    fillColor: 'darkgrey',
+    borderColor: null,
+    color: 'black',
+    colorSpace: 'rgb',
+    pos: [0, (- 0.3)],
+    letterHeight: 0.08,
+    size: [0.4, 0.1],
+    ori: 0.0
+    ,
+    depth: -3
+  });
+  button.clock = new util.Clock();
   
   // Initialize components for Routine "start_e"
   start_eClock = new util.Clock();
@@ -904,22 +836,6 @@ async function experimentInit() {
     flip: false,
   });
   
-  next = new visual.TextStim({
-    win: psychoJS.window,
-    name: 'next',
-    text: 'Submit Score',
-    font: 'Arial',
-    units: 'norm', 
-    pos: [0, (- 0.18)], draggable: false, height: 0.08,  wrapWidth: undefined, ori: 0.0,
-    languageStyle: 'LTR',
-    color: new util.Color('gray'),  opacity: 1.0,
-    depth: -2.0 
-  });
-  
-  vast_mouse = new core.Mouse({
-    win: psychoJS.window,
-  });
-  vast_mouse.mouseClock = new util.Clock();
   text_5 = new visual.TextStim({
     win: psychoJS.window,
     name: 'text_5',
@@ -929,15 +845,32 @@ async function experimentInit() {
     pos: [0, 0.3], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('gray'),  opacity: 1.0,
-    depth: -4.0 
+    depth: -2.0 
   });
+  
+  button_2 = new visual.ButtonStim({
+    win: psychoJS.window,
+    name: 'button_2',
+    text: 'Submit Score',
+    fillColor: 'darkgrey',
+    borderColor: null,
+    color: 'black',
+    colorSpace: 'rgb',
+    pos: [0, (- 0.3)],
+    letterHeight: 0.08,
+    size: [0.4, 0.1],
+    ori: 0.0
+    ,
+    depth: -3
+  });
+  button_2.clock = new util.Clock();
   
   // Initialize components for Routine "catch"
   catchClock = new util.Clock();
   text_3 = new visual.TextStim({
     win: psychoJS.window,
     name: 'text_3',
-    text: 'Press "c" to continue with the study.',
+    text: target_key,
     font: 'Arial',
     units: 'norm', 
     pos: [0, 0], draggable: false, height: 0.08,  wrapWidth: undefined, ori: 0.0,
@@ -993,14 +926,6 @@ async function experimentInit() {
   return Scheduler.Event.NEXT;
 }
 
-
-var t;
-var frameN;
-var continueRoutine;
-var start_pMaxDurationReached;
-var _key_resp_3_allKeys;
-var start_pMaxDuration;
-var start_pComponents;
 function start_pRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1029,7 +954,6 @@ function start_pRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function start_pRoutineEachFrame() {
   return async function () {
@@ -1099,7 +1023,6 @@ function start_pRoutineEachFrame() {
   };
 }
 
-
 function start_pRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'start_p' ---
@@ -1132,10 +1055,6 @@ function start_pRoutineEnd(snapshot) {
   }
 }
 
-
-var p_equationMaxDurationReached;
-var p_equationMaxDuration;
-var p_equationComponents;
 function p_equationRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1161,8 +1080,6 @@ function p_equationRoutineBegin(snapshot) {
   }
 }
 
-
-var frameRemains;
 function p_equationRoutineEachFrame() {
   return async function () {
     //--- Loop for each frame of Routine 'p_equation' ---
@@ -1211,7 +1128,6 @@ function p_equationRoutineEachFrame() {
   };
 }
 
-
 function p_equationRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'p_equation' ---
@@ -1234,10 +1150,6 @@ function p_equationRoutineEnd(snapshot) {
   }
 }
 
-
-var p_imageMaxDurationReached;
-var p_imageMaxDuration;
-var p_imageComponents;
 function p_imageRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1262,7 +1174,6 @@ function p_imageRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function p_imageRoutineEachFrame() {
   return async function () {
@@ -1312,7 +1223,6 @@ function p_imageRoutineEachFrame() {
   };
 }
 
-
 function p_imageRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'p_image' ---
@@ -1335,11 +1245,6 @@ function p_imageRoutineEnd(snapshot) {
   }
 }
 
-
-var p_math_answerMaxDurationReached;
-var gotValidClick;
-var p_math_answerMaxDuration;
-var p_math_answerComponents;
 function p_math_answerRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1378,10 +1283,6 @@ function p_math_answerRoutineBegin(snapshot) {
   }
 }
 
-
-var prevButtonState;
-var _mouseButtons;
-var _mouseXYs;
 function p_math_answerRoutineEachFrame() {
   return async function () {
     //--- Loop for each frame of Routine 'p_math_answer' ---
@@ -1490,7 +1391,6 @@ function p_math_answerRoutineEachFrame() {
   };
 }
 
-
 function p_math_answerRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'p_math_answer' ---
@@ -1520,10 +1420,6 @@ function p_math_answerRoutineEnd(snapshot) {
   }
 }
 
-
-var p_time_startMaxDurationReached;
-var p_time_startMaxDuration;
-var p_time_startComponents;
 function p_time_startRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1561,7 +1457,6 @@ function p_time_startRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function p_time_startRoutineEachFrame() {
   return async function () {
@@ -1671,7 +1566,6 @@ function p_time_startRoutineEachFrame() {
   };
 }
 
-
 function p_time_startRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'p_time_start' ---
@@ -1701,10 +1595,6 @@ function p_time_startRoutineEnd(snapshot) {
   }
 }
 
-
-var p_time_endMaxDurationReached;
-var p_time_endMaxDuration;
-var p_time_endComponents;
 function p_time_endRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1742,7 +1632,6 @@ function p_time_endRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function p_time_endRoutineEachFrame() {
   return async function () {
@@ -1852,7 +1741,6 @@ function p_time_endRoutineEachFrame() {
   };
 }
 
-
 function p_time_endRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'p_time_end' ---
@@ -1882,10 +1770,6 @@ function p_time_endRoutineEnd(snapshot) {
   }
 }
 
-
-var p_vastnessMaxDurationReached;
-var p_vastnessMaxDuration;
-var p_vastnessComponents;
 function p_vastnessRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1899,25 +1783,16 @@ function p_vastnessRoutineBegin(snapshot) {
     p_vastnessMaxDurationReached = false;
     // update component parameters for each repeat
     slider.reset()
-    // setup some python lists for storing info about the mouse_4
-    // current position of the mouse:
-    mouse_4.x = [];
-    mouse_4.y = [];
-    mouse_4.leftButton = [];
-    mouse_4.midButton = [];
-    mouse_4.rightButton = [];
-    mouse_4.time = [];
-    mouse_4.clicked_name = [];
-    gotValidClick = false; // until a click is received
+    // reset button to account for continued clicks & clear times on/off
+    button.reset()
     psychoJS.experiment.addData('p_vastness.started', globalClock.getTime());
     p_vastnessMaxDuration = null
     // keep track of which components have finished
     p_vastnessComponents = [];
     p_vastnessComponents.push(text_13);
     p_vastnessComponents.push(slider);
-    p_vastnessComponents.push(text_14);
-    p_vastnessComponents.push(mouse_4);
     p_vastnessComponents.push(text_4);
+    p_vastnessComponents.push(button);
     
     for (const thisComponent of p_vastnessComponents)
       if ('status' in thisComponent)
@@ -1925,7 +1800,6 @@ function p_vastnessRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function p_vastnessRoutineEachFrame() {
   return async function () {
@@ -1955,61 +1829,6 @@ function p_vastnessRoutineEachFrame() {
     }
     
     
-    // *text_14* updates
-    if (t >= 0.0 && text_14.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      text_14.tStart = t;  // (not accounting for frame time here)
-      text_14.frameNStart = frameN;  // exact frame index
-      
-      text_14.setAutoDraw(true);
-    }
-    
-    // *mouse_4* updates
-    if (t >= 0.0 && mouse_4.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      mouse_4.tStart = t;  // (not accounting for frame time here)
-      mouse_4.frameNStart = frameN;  // exact frame index
-      
-      mouse_4.status = PsychoJS.Status.STARTED;
-      mouse_4.mouseClock.reset();
-      prevButtonState = mouse_4.getPressed();  // if button is down already this ISN'T a new click
-      }
-    if (mouse_4.status === PsychoJS.Status.STARTED) {  // only update if started and not finished!
-      _mouseButtons = mouse_4.getPressed();
-      if (!_mouseButtons.every( (e,i,) => (e == prevButtonState[i]) )) { // button state changed?
-        prevButtonState = _mouseButtons;
-        if (_mouseButtons.reduce( (e, acc) => (e+acc) ) > 0) { // state changed to a new click
-          // check if the mouse was inside our 'clickable' objects
-          gotValidClick = false;
-          mouse_4.clickableObjects = eval(text_14)
-          ;// make sure the mouse's clickable objects are an array
-          if (!Array.isArray(mouse_4.clickableObjects)) {
-              mouse_4.clickableObjects = [mouse_4.clickableObjects];
-          }
-          // iterate through clickable objects and check each
-          for (const obj of mouse_4.clickableObjects) {
-              if (obj.contains(mouse_4)) {
-                  gotValidClick = true;
-                  mouse_4.clicked_name.push(obj.name);
-              }
-          }
-          if (!gotValidClick) {
-              mouse_4.clicked_name.push(null);
-          }
-          _mouseXYs = mouse_4.getPos();
-          mouse_4.x.push(_mouseXYs[0]);
-          mouse_4.y.push(_mouseXYs[1]);
-          mouse_4.leftButton.push(_mouseButtons[0]);
-          mouse_4.midButton.push(_mouseButtons[1]);
-          mouse_4.rightButton.push(_mouseButtons[2]);
-          mouse_4.time.push(mouse_4.mouseClock.getTime());
-          if (gotValidClick === true) { // end routine on response
-            continueRoutine = false;
-          }
-        }
-      }
-    }
-    
     // *text_4* updates
     if (t >= 0.0 && text_4.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
@@ -2019,6 +1838,45 @@ function p_vastnessRoutineEachFrame() {
       text_4.setAutoDraw(true);
     }
     
+    
+    // *button* updates
+    if (t >= 0 && button.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      button.tStart = t;  // (not accounting for frame time here)
+      button.frameNStart = frameN;  // exact frame index
+      
+      button.setAutoDraw(true);
+    }
+    
+    if (button.status === PsychoJS.Status.STARTED) {
+      // check whether button has been pressed
+      if (button.isClicked) {
+        if (!button.wasClicked) {
+          // store time of first click
+          button.timesOn.push(button.clock.getTime());
+          // store time clicked until
+          button.timesOff.push(button.clock.getTime());
+        } else {
+          // update time clicked until;
+          button.timesOff[button.timesOff.length - 1] = button.clock.getTime();
+        }
+        if (!button.wasClicked) {
+          // end routine when button is clicked
+          continueRoutine = false;
+          
+        }
+        // if button is still clicked next frame, it is not a new click
+        button.wasClicked = true;
+      } else {
+        // if button is clicked next frame, it is a new click
+        button.wasClicked = false;
+      }
+    } else {
+      // keep clock at 0 if button hasn't started / has finished
+      button.clock.reset();
+      // if button is clicked next frame, it is a new click
+      button.wasClicked = false;
+    }
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -2045,7 +1903,6 @@ function p_vastnessRoutineEachFrame() {
   };
 }
 
-
 function p_vastnessRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'p_vastness' ---
@@ -2057,15 +1914,9 @@ function p_vastnessRoutineEnd(snapshot) {
     psychoJS.experiment.addData('p_vastness.stopped', globalClock.getTime());
     psychoJS.experiment.addData('slider.response', slider.getRating());
     psychoJS.experiment.addData('slider.rt', slider.getRT());
-    // store data for psychoJS.experiment (ExperimentHandler)
-    psychoJS.experiment.addData('mouse_4.x', mouse_4.x);
-    psychoJS.experiment.addData('mouse_4.y', mouse_4.y);
-    psychoJS.experiment.addData('mouse_4.leftButton', mouse_4.leftButton);
-    psychoJS.experiment.addData('mouse_4.midButton', mouse_4.midButton);
-    psychoJS.experiment.addData('mouse_4.rightButton', mouse_4.rightButton);
-    psychoJS.experiment.addData('mouse_4.time', mouse_4.time);
-    psychoJS.experiment.addData('mouse_4.clicked_name', mouse_4.clicked_name);
-    
+    psychoJS.experiment.addData('button.numClicks', button.numClicks);
+    psychoJS.experiment.addData('button.timesOn', button.timesOn);
+    psychoJS.experiment.addData('button.timesOff', button.timesOff);
     // the Routine "p_vastness" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
@@ -2077,8 +1928,6 @@ function p_vastnessRoutineEnd(snapshot) {
   }
 }
 
-
-var trials;
 function trialsLoopBegin(trialsLoopScheduler, snapshot) {
   return async function() {
     TrialHandler.fromSnapshot(snapshot); // update internal variables (.thisN etc) of the loop
@@ -2129,7 +1978,6 @@ function trialsLoopBegin(trialsLoopScheduler, snapshot) {
   }
 }
 
-
 async function trialsLoopEnd() {
   // terminate loop
   psychoJS.experiment.removeLoop(trials);
@@ -2140,7 +1988,6 @@ async function trialsLoopEnd() {
     currentLoop = psychoJS.experiment;  // so we use addData from the experiment
   return Scheduler.Event.NEXT;
 }
-
 
 function trialsLoopEndIteration(scheduler, snapshot) {
   // ------Prepare for next entry------
@@ -2161,11 +2008,6 @@ function trialsLoopEndIteration(scheduler, snapshot) {
   };
 }
 
-
-var start_eMaxDurationReached;
-var _key_resp_allKeys;
-var start_eMaxDuration;
-var start_eComponents;
 function start_eRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -2194,7 +2036,6 @@ function start_eRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function start_eRoutineEachFrame() {
   return async function () {
@@ -2264,7 +2105,6 @@ function start_eRoutineEachFrame() {
   };
 }
 
-
 function start_eRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'start_e' ---
@@ -2297,10 +2137,6 @@ function start_eRoutineEnd(snapshot) {
   }
 }
 
-
-var equationsMaxDurationReached;
-var equationsMaxDuration;
-var equationsComponents;
 function equationsRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -2326,7 +2162,6 @@ function equationsRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function equationsRoutineEachFrame() {
   return async function () {
@@ -2376,7 +2211,6 @@ function equationsRoutineEachFrame() {
   };
 }
 
-
 function equationsRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'equations' ---
@@ -2399,10 +2233,6 @@ function equationsRoutineEnd(snapshot) {
   }
 }
 
-
-var ImageMaxDurationReached;
-var ImageMaxDuration;
-var ImageComponents;
 function ImageRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -2428,7 +2258,6 @@ function ImageRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function ImageRoutineEachFrame() {
   return async function () {
@@ -2478,7 +2307,6 @@ function ImageRoutineEachFrame() {
   };
 }
 
-
 function ImageRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'Image' ---
@@ -2499,10 +2327,6 @@ function ImageRoutineEnd(snapshot) {
   }
 }
 
-
-var math_answerMaxDurationReached;
-var math_answerMaxDuration;
-var math_answerComponents;
 function math_answerRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -2542,7 +2366,6 @@ function math_answerRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function math_answerRoutineEachFrame() {
   return async function () {
@@ -2652,7 +2475,6 @@ function math_answerRoutineEachFrame() {
   };
 }
 
-
 function math_answerRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'math_answer' ---
@@ -2682,10 +2504,6 @@ function math_answerRoutineEnd(snapshot) {
   }
 }
 
-
-var time_startMaxDurationReached;
-var time_startMaxDuration;
-var time_startComponents;
 function time_startRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -2723,7 +2541,6 @@ function time_startRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function time_startRoutineEachFrame() {
   return async function () {
@@ -2833,7 +2650,6 @@ function time_startRoutineEachFrame() {
   };
 }
 
-
 function time_startRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'time_start' ---
@@ -2863,10 +2679,6 @@ function time_startRoutineEnd(snapshot) {
   }
 }
 
-
-var time_endMaxDurationReached;
-var time_endMaxDuration;
-var time_endComponents;
 function time_endRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -2904,7 +2716,6 @@ function time_endRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function time_endRoutineEachFrame() {
   return async function () {
@@ -3014,7 +2825,6 @@ function time_endRoutineEachFrame() {
   };
 }
 
-
 function time_endRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'time_end' ---
@@ -3044,10 +2854,6 @@ function time_endRoutineEnd(snapshot) {
   }
 }
 
-
-var vastnessMaxDurationReached;
-var vastnessMaxDuration;
-var vastnessComponents;
 function vastnessRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -3061,25 +2867,16 @@ function vastnessRoutineBegin(snapshot) {
     vastnessMaxDurationReached = false;
     // update component parameters for each repeat
     vast_answer.reset()
-    // setup some python lists for storing info about the vast_mouse
-    // current position of the mouse:
-    vast_mouse.x = [];
-    vast_mouse.y = [];
-    vast_mouse.leftButton = [];
-    vast_mouse.midButton = [];
-    vast_mouse.rightButton = [];
-    vast_mouse.time = [];
-    vast_mouse.clicked_name = [];
-    gotValidClick = false; // until a click is received
+    // reset button_2 to account for continued clicks & clear times on/off
+    button_2.reset()
     psychoJS.experiment.addData('vastness.started', globalClock.getTime());
     vastnessMaxDuration = null
     // keep track of which components have finished
     vastnessComponents = [];
     vastnessComponents.push(vast);
     vastnessComponents.push(vast_answer);
-    vastnessComponents.push(next);
-    vastnessComponents.push(vast_mouse);
     vastnessComponents.push(text_5);
+    vastnessComponents.push(button_2);
     
     for (const thisComponent of vastnessComponents)
       if ('status' in thisComponent)
@@ -3087,7 +2884,6 @@ function vastnessRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function vastnessRoutineEachFrame() {
   return async function () {
@@ -3117,61 +2913,6 @@ function vastnessRoutineEachFrame() {
     }
     
     
-    // *next* updates
-    if (((vast_answer.getRating() !== null)) && next.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      next.tStart = t;  // (not accounting for frame time here)
-      next.frameNStart = frameN;  // exact frame index
-      
-      next.setAutoDraw(true);
-    }
-    
-    // *vast_mouse* updates
-    if (t >= 0.0 && vast_mouse.status === PsychoJS.Status.NOT_STARTED) {
-      // keep track of start time/frame for later
-      vast_mouse.tStart = t;  // (not accounting for frame time here)
-      vast_mouse.frameNStart = frameN;  // exact frame index
-      
-      vast_mouse.status = PsychoJS.Status.STARTED;
-      vast_mouse.mouseClock.reset();
-      prevButtonState = vast_mouse.getPressed();  // if button is down already this ISN'T a new click
-      }
-    if (vast_mouse.status === PsychoJS.Status.STARTED) {  // only update if started and not finished!
-      _mouseButtons = vast_mouse.getPressed();
-      if (!_mouseButtons.every( (e,i,) => (e == prevButtonState[i]) )) { // button state changed?
-        prevButtonState = _mouseButtons;
-        if (_mouseButtons.reduce( (e, acc) => (e+acc) ) > 0) { // state changed to a new click
-          // check if the mouse was inside our 'clickable' objects
-          gotValidClick = false;
-          vast_mouse.clickableObjects = eval(next)
-          ;// make sure the mouse's clickable objects are an array
-          if (!Array.isArray(vast_mouse.clickableObjects)) {
-              vast_mouse.clickableObjects = [vast_mouse.clickableObjects];
-          }
-          // iterate through clickable objects and check each
-          for (const obj of vast_mouse.clickableObjects) {
-              if (obj.contains(vast_mouse)) {
-                  gotValidClick = true;
-                  vast_mouse.clicked_name.push(obj.name);
-              }
-          }
-          if (!gotValidClick) {
-              vast_mouse.clicked_name.push(null);
-          }
-          _mouseXYs = vast_mouse.getPos();
-          vast_mouse.x.push(_mouseXYs[0]);
-          vast_mouse.y.push(_mouseXYs[1]);
-          vast_mouse.leftButton.push(_mouseButtons[0]);
-          vast_mouse.midButton.push(_mouseButtons[1]);
-          vast_mouse.rightButton.push(_mouseButtons[2]);
-          vast_mouse.time.push(vast_mouse.mouseClock.getTime());
-          if (gotValidClick === true) { // end routine on response
-            continueRoutine = false;
-          }
-        }
-      }
-    }
-    
     // *text_5* updates
     if (t >= 0.0 && text_5.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
@@ -3181,6 +2922,45 @@ function vastnessRoutineEachFrame() {
       text_5.setAutoDraw(true);
     }
     
+    
+    // *button_2* updates
+    if (t >= 0 && button_2.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      button_2.tStart = t;  // (not accounting for frame time here)
+      button_2.frameNStart = frameN;  // exact frame index
+      
+      button_2.setAutoDraw(true);
+    }
+    
+    if (button_2.status === PsychoJS.Status.STARTED) {
+      // check whether button_2 has been pressed
+      if (button_2.isClicked) {
+        if (!button_2.wasClicked) {
+          // store time of first click
+          button_2.timesOn.push(button_2.clock.getTime());
+          // store time clicked until
+          button_2.timesOff.push(button_2.clock.getTime());
+        } else {
+          // update time clicked until;
+          button_2.timesOff[button_2.timesOff.length - 1] = button_2.clock.getTime();
+        }
+        if (!button_2.wasClicked) {
+          // end routine when button_2 is clicked
+          continueRoutine = false;
+          
+        }
+        // if button_2 is still clicked next frame, it is not a new click
+        button_2.wasClicked = true;
+      } else {
+        // if button_2 is clicked next frame, it is a new click
+        button_2.wasClicked = false;
+      }
+    } else {
+      // keep clock at 0 if button_2 hasn't started / has finished
+      button_2.clock.reset();
+      // if button_2 is clicked next frame, it is a new click
+      button_2.wasClicked = false;
+    }
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
@@ -3207,7 +2987,6 @@ function vastnessRoutineEachFrame() {
   };
 }
 
-
 function vastnessRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'vastness' ---
@@ -3218,15 +2997,9 @@ function vastnessRoutineEnd(snapshot) {
     }
     psychoJS.experiment.addData('vastness.stopped', globalClock.getTime());
     psychoJS.experiment.addData('vast_answer.response', vast_answer.getRating());
-    // store data for psychoJS.experiment (ExperimentHandler)
-    psychoJS.experiment.addData('vast_mouse.x', vast_mouse.x);
-    psychoJS.experiment.addData('vast_mouse.y', vast_mouse.y);
-    psychoJS.experiment.addData('vast_mouse.leftButton', vast_mouse.leftButton);
-    psychoJS.experiment.addData('vast_mouse.midButton', vast_mouse.midButton);
-    psychoJS.experiment.addData('vast_mouse.rightButton', vast_mouse.rightButton);
-    psychoJS.experiment.addData('vast_mouse.time', vast_mouse.time);
-    psychoJS.experiment.addData('vast_mouse.clicked_name', vast_mouse.clicked_name);
-    
+    psychoJS.experiment.addData('button_2.numClicks', button_2.numClicks);
+    psychoJS.experiment.addData('button_2.timesOn', button_2.timesOn);
+    psychoJS.experiment.addData('button_2.timesOff', button_2.timesOff);
     // the Routine "vastness" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset();
     
@@ -3238,11 +3011,6 @@ function vastnessRoutineEnd(snapshot) {
   }
 }
 
-
-var catchMaxDurationReached;
-var _key_resp_2_allKeys;
-var catchMaxDuration;
-var catchComponents;
 function catchRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -3262,6 +3030,14 @@ function catchRoutineBegin(snapshot) {
     if ((trials.thisN + 1) % 10 !== 0) {
         continueRoutine = false;
     }
+    
+    import random;
+    
+    // Randomly choose the target key for this trial
+    var target_key = random.choice(['c', 'a', 'g', 'o', 't']);
+    
+    // Set the text to prompt the participant
+    text_3.setText("Press '" + target_key + "' to continue with the study");
     psychoJS.experiment.addData('catch.started', globalClock.getTime());
     catchMaxDuration = null
     // keep track of which components have finished
@@ -3275,7 +3051,6 @@ function catchRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function catchRoutineEachFrame() {
   return async function () {
@@ -3307,7 +3082,7 @@ function catchRoutineEachFrame() {
     }
     
     if (key_resp_2.status === PsychoJS.Status.STARTED) {
-      let theseKeys = key_resp_2.getKeys({keyList: ['c'], waitRelease: false});
+      let theseKeys = key_resp_2.getKeys({keyList: ['c', 'a', 'g', 'o', 't'], waitRelease: false});
       _key_resp_2_allKeys = _key_resp_2_allKeys.concat(theseKeys);
       if (_key_resp_2_allKeys.length > 0) {
         key_resp_2.keys = _key_resp_2_allKeys[_key_resp_2_allKeys.length - 1].name;  // just the last key pressed
@@ -3344,7 +3119,6 @@ function catchRoutineEachFrame() {
   };
 }
 
-
 function catchRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'catch' ---
@@ -3377,10 +3151,6 @@ function catchRoutineEnd(snapshot) {
   }
 }
 
-
-var endMaxDurationReached;
-var endMaxDuration;
-var endComponents;
 function endRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -3407,7 +3177,6 @@ function endRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function endRoutineEachFrame() {
   return async function () {
@@ -3472,7 +3241,6 @@ function endRoutineEachFrame() {
   };
 }
 
-
 function endRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'end' ---
@@ -3493,14 +3261,12 @@ function endRoutineEnd(snapshot) {
   }
 }
 
-
 function importConditions(currentLoop) {
   return async function () {
     psychoJS.importAttributes(currentLoop.getCurrentTrial());
     return Scheduler.Event.NEXT;
     };
 }
-
 
 async function quitPsychoJS(message, isCompleted) {
   // Check for and save orphaned data
@@ -3516,27 +3282,54 @@ async function quitPsychoJS(message, isCompleted) {
   // Extract data object from experiment
   let dataObj = psychoJS._experiment._trialsData;
   
-  // Convert data object to CSV
-  let data = [Object.keys(dataObj[0])].concat(dataObj).map(it => {
-      return Object.values(it).toString()
-  }).join('\n')
+  // Function to flatten nested objects (if needed)
+  function flattenObject(ob, prefix = '') {
+      let result = {};
+      for (let key in ob) {
+          if (typeof ob[key] === 'object' && ob[key] !== null && !Array.isArray(ob[key])) {
+              Object.assign(result, flattenObject(ob[key], prefix + key + '_'));
+          } else {
+              result[prefix + key] = ob[key];
+          }
+      }
+      return result;
+  }
+  
+  // Convert each trial to flattened object and build CSV
+  let headers = Object.keys(flattenObject(dataObj[0]));
+  let rows = dataObj.map(trial => {
+      let flatTrial = flattenObject(trial);
+      return headers.map(header => {
+          let value = flatTrial[header];
+          // Handle commas, quotes, and line breaks in values
+          if (typeof value === 'string' && (value.includes(',') || value.includes('"') || value.includes('\n'))) {
+              value = '"' + value.replace(/"/g, '""') + '"';
+          }
+          return value !== undefined && value !== null ? value : '';
+      }).join(',');
+  });
+  
+  // Create CSV with headers and rows
+  let data = [headers.join(',')].concat(rows).join('\n');
   
   // Send data to OSF via DataPipe
   console.log('Saving data...');
   fetch('https://pipe.jspsych.org/api/data', {
       method: 'POST',
       headers: {
-      'Content-Type': 'application/json',
-      Accept: '*/*',
+          'Content-Type': 'application/json',
+          'Accept': '*/*',
       },
       body: JSON.stringify({
-      experimentID: 'Jbc9toAnfsBP', // * UPDATE WITH YOUR DATAPIEP EXPERIMENT ID *
-      filename: filename,
-      data: data,
+          experimentID: 'Jbc9toAnfsBP', // * UPDATE WITH YOUR DATAPIEP EXPERIMENT ID *
+          filename: filename,
+          data: data,
       }),
   }).then(response => response.json()).then(data => {
-      // Log response and force experiment end
       console.log(data);
+      quitPsychoJS();
+  }).catch(error => {
+      console.error('Error saving data:', error);
       quitPsychoJS();
   });
   psychoJS.window.close();

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.4),
-    on April 13, 2026, at 08:17
+    on April 29, 2026, at 13:21
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -43,7 +43,7 @@ expName = 'SNAC'  # from the Builder filename that created this script
 # information about this experiment
 expInfo = {
     'Please keep this number!': f"{randint(0, 999):03.0f}",
-    'What letter were you given?': '',
+    'What letter were you given?': ['','o','p','q','r','s','t','u','v','w','x','y','z'],
     'date|hid': data.getDateStr(),
     'expName|hid': expName,
     'psychopyVersion|hid': psychopyVersion,
@@ -358,14 +358,12 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     
     # Start Code - component code to be run after the window creation
     
-    # --- Initialize components for Routine "set_up" ---
-    
     # --- Initialize components for Routine "start_p" ---
     text_15 = visual.TextStim(win=win, name='text_15',
         text='Click the spacebar to start the practice trial.',
         font='Arial',
-        units='height', pos=(0, 0), draggable=False, height=0.055, wrapWidth=None, ori=0.0, 
-        color='black', colorSpace='rgb', opacity=None, 
+        units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=None, ori=0.0, 
+        color='black', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=0.0);
     key_resp_3 = keyboard.Keyboard(deviceName='key_resp_3')
@@ -374,8 +372,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     text_9 = visual.TextStim(win=win, name='text_9',
         text='16 + 27',
         font='Arial',
-        units='norm', pos=(0, 0), draggable=False, height=0.1, wrapWidth=None, ori=0.0, 
-        color='black', colorSpace='rgb', opacity=None, 
+        units='norm', pos=(0, 0), draggable=False, height=0.2, wrapWidth=None, ori=0.0, 
+        color='black', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=0.0);
     
@@ -393,22 +391,22 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     text_10 = visual.TextStim(win=win, name='text_10',
         text='Please answer the addition problem.',
         font='Arial',
-        units='height', pos=(0, .15), draggable=False, height=0.055, wrapWidth=None, ori=0.0, 
-        color='black', colorSpace='rgb', opacity=None, 
+        units='norm', pos=(0, .18), draggable=False, height=0.08, wrapWidth=None, ori=0.0, 
+        color='black', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=0.0);
     p_a = visual.TextStim(win=win, name='p_a',
         text='48',
         font='Arial',
-        units='height', pos=(-.1, -0.075), draggable=False, height=0.08, wrapWidth=None, ori=0.0, 
-        color='black', colorSpace='rgb', opacity=None, 
+        units='norm', pos=(-.2, -0.075), draggable=False, height=0.2, wrapWidth=None, ori=0.0, 
+        color='black', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=-1.0);
     p_b = visual.TextStim(win=win, name='p_b',
         text='43',
         font='Arial',
-        units='height', pos=(.1, -.075), draggable=False, height=0.08, wrapWidth=None, ori=0.0, 
-        color='black', colorSpace='rgb', opacity=None, 
+        units='norm', pos=(.2, -.075), draggable=False, height=0.2, wrapWidth=None, ori=0.0, 
+        color='black', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=-2.0);
     mouse = event.Mouse(win=win)
@@ -419,8 +417,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     text_11 = visual.TextStim(win=win, name='text_11',
         text='Click the hourglass to start the timer',
         font='Arial',
-        units='height', pos=(0, .15), draggable=False, height=0.055, wrapWidth=None, ori=0.0, 
-        color='black', colorSpace='rgb', opacity=None, 
+        units='norm', pos=(0, .18), draggable=False, height=0.1, wrapWidth=None, ori=0.0, 
+        color='black', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=0.0);
     polygon = visual.ShapeStim(
@@ -445,8 +443,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     text_12 = visual.TextStim(win=win, name='text_12',
         text='Click the hourglass to stop the timer',
         font='Arial',
-        units='height', pos=(0, 0.15), draggable=False, height=0.055, wrapWidth=None, ori=0.0, 
-        color='black', colorSpace='rgb', opacity=None, 
+        units='norm', pos=(0, 0.18), draggable=False, height=0.1, wrapWidth=None, ori=0.0, 
+        color='black', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=0.0);
     polygon_3 = visual.ShapeStim(
@@ -471,8 +469,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     text_13 = visual.TextStim(win=win, name='text_13',
         text='How vast was the image?',
         font='Arial',
-        units='height', pos=(0, 0.15), draggable=False, height=0.055, wrapWidth=None, ori=0.0, 
-        color='black', colorSpace='rgb', opacity=None, 
+        units='norm', pos=(0, 0.18), draggable=False, height=0.1, wrapWidth=None, ori=0.0, 
+        color='black', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=0.0);
     slider = visual.Slider(win=win, name='slider',
@@ -482,30 +480,37 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         labelColor='LightGray', markerColor='Red', lineColor='DarkGray', colorSpace='rgb',
         font='Open Sans', labelHeight=0.035,
         flip=False, ori=0.0, depth=-1, readOnly=False)
-    text_14 = visual.TextStim(win=win, name='text_14',
-        text='Submit Score',
-        font='Arial',
-        units='height', pos=(0, -0.17), draggable=False, height=0.035, wrapWidth=None, ori=0.0, 
-        color='gray', colorSpace='rgb', opacity=None, 
-        languageStyle='LTR',
-        depth=-2.0);
-    mouse_4 = event.Mouse(win=win)
-    x, y = [None, None]
-    mouse_4.mouseClock = core.Clock()
     text_4 = visual.TextStim(win=win, name='text_4',
         text='Vastness: a perceptual phenomenon that occurs when a space seems to extend to very far distances, seemingly without limit.',
         font='Arial',
-        units='height', pos=(0, 0.25), draggable=False, height=0.03, wrapWidth=None, ori=0.0, 
-        color='gray', colorSpace='rgb', opacity=None, 
+        units='norm', pos=(0, 0.3), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
+        color='gray', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
-        depth=-4.0);
+        depth=-2.0);
+    button = visual.ButtonStim(win, 
+        text='Submit Score', font='Arial',
+        pos=(0, -0.3),units='norm',
+        letterHeight=0.08,
+        size=(0.4, 0.1), 
+        ori=0.0
+        ,borderWidth=1.0,
+        fillColor='darkgrey', borderColor=None,
+        color='black', colorSpace='rgb',
+        opacity=None,
+        bold=False, italic=True,
+        padding=None,
+        anchor='center',
+        name='button',
+        depth=-3
+    )
+    button.buttonClock = core.Clock()
     
     # --- Initialize components for Routine "start_e" ---
     text = visual.TextStim(win=win, name='text',
         text='Press the spacebar to start the next trial.',
         font='Arial',
-        units='height', pos=(0, 0), draggable=False, height=0.055, wrapWidth=None, ori=0.0, 
-        color='black', colorSpace='rgb', opacity=None, 
+        units='norm', pos=(0, 0), draggable=False, height=0.08, wrapWidth=None, ori=0.0, 
+        color='black', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=0.0);
     key_resp = keyboard.Keyboard(deviceName='key_resp')
@@ -514,7 +519,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     math_equation = visual.TextStim(win=win, name='math_equation',
         text='',
         font='Arial',
-        units='height', pos=(0, 0), draggable=False, height=0.055, wrapWidth=None, ori=0.0, 
+        units='norm', pos=(0, 0), draggable=False, height=0.2, wrapWidth=None, ori=0.0, 
         color='black', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=0.0);
@@ -533,21 +538,21 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     answers = visual.TextStim(win=win, name='answers',
         text='Please answer the addition problem',
         font='Arial',
-        units='height', pos=(0, 0.15), draggable=False, height=0.055, wrapWidth=None, ori=0.0, 
+        units='norm', pos=(0, 0.18), draggable=False, height=0.08, wrapWidth=None, ori=0.0, 
         color='black', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=0.0);
     answer_a = visual.TextStim(win=win, name='answer_a',
         text='',
         font='Arial',
-        units='height', pos=(-0.1, -0.075), draggable=False, height=0.08, wrapWidth=None, ori=0.0, 
+        units='norm', pos=(-0.2, -0.075), draggable=False, height=0.2, wrapWidth=None, ori=0.0, 
         color='black', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=-1.0);
     answer_b = visual.TextStim(win=win, name='answer_b',
         text='',
         font='Arial',
-        units='height', pos=(0.1, -0.075), draggable=False, height=0.08, wrapWidth=None, ori=0.0, 
+        units='norm', pos=(0.2, -0.075), draggable=False, height=0.2, wrapWidth=None, ori=0.0, 
         color='black', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=-2.0);
@@ -559,7 +564,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     start_time = visual.TextStim(win=win, name='start_time',
         text='Click the hourglass to start the timer',
         font='Arial',
-        units='height', pos=(0, .15), draggable=False, height=0.055, wrapWidth=None, ori=0.0, 
+        units='norm', pos=(0, .18), draggable=False, height=0.08, wrapWidth=None, ori=0.0, 
         color='black', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=0.0);
@@ -585,7 +590,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     end_time = visual.TextStim(win=win, name='end_time',
         text='Click the hourglass to stop the timer',
         font='Arial',
-        units='height', pos=(0, .15), draggable=False, height=0.055, wrapWidth=None, ori=0.0, 
+        units='norm', pos=(0, .18), draggable=False, height=0.08, wrapWidth=None, ori=0.0, 
         color='black', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=0.0);
@@ -611,7 +616,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     vast = visual.TextStim(win=win, name='vast',
         text='How vast was the image?',
         font='Arial',
-        units='height', pos=(0, .15), draggable=False, height=0.055, wrapWidth=None, ori=0.0, 
+        units='norm', pos=(0, .18), draggable=False, height=0.08, wrapWidth=None, ori=0.0, 
         color='black', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=0.0);
@@ -625,7 +630,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     next = visual.TextStim(win=win, name='next',
         text='Submit Score',
         font='Arial',
-        units='height', pos=(0, -.17), draggable=False, height=0.035, wrapWidth=None, ori=0.0, 
+        units='norm', pos=(0, -.18), draggable=False, height=0.08, wrapWidth=None, ori=0.0, 
         color='gray', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=-2.0);
@@ -635,8 +640,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     text_5 = visual.TextStim(win=win, name='text_5',
         text='Vastness: a perceptual phenomenon that occurs when a space seems to extend to very far distances, seemingly without limit.',
         font='Arial',
-        units='height', pos=(0, 0.25), draggable=False, height=0.03, wrapWidth=None, ori=0.0, 
-        color='gray', colorSpace='rgb', opacity=None, 
+        units='norm', pos=(0, 0.3), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
+        color='gray', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=-4.0);
     
@@ -644,8 +649,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     text_3 = visual.TextStim(win=win, name='text_3',
         text='Press "c" to continue with the study.',
         font='Arial',
-        units='height', pos=(0, 0), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
-        color='black', colorSpace='rgb', opacity=None, 
+        units='norm', pos=(0, 0), draggable=False, height=0.08, wrapWidth=None, ori=0.0, 
+        color='black', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=0.0);
     key_resp_2 = keyboard.Keyboard(deviceName='key_resp_2')
@@ -654,17 +659,24 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     text_2 = visual.TextStim(win=win, name='text_2',
         text='Please remember this number, you will need to enter it on the next page:',
         font='Arial',
-        units='height', pos=(0, 0), draggable=False, height=0.035, wrapWidth=None, ori=0.0, 
+        units='norm', pos=(0, 0.2), draggable=False, height=0.08, wrapWidth=None, ori=0.0, 
         color='black', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=0.0);
     text_6 = visual.TextStim(win=win, name='text_6',
-        text="expInfo['Please keep this number!']",
+        text=expInfo['Please keep this number!'],
         font='Arial',
-        pos=(0, 0), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
-        color='white', colorSpace='rgb', opacity=None, 
+        units='norm', pos=(0, 0), draggable=False, height=0.2, wrapWidth=None, ori=0.0, 
+        color='black', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=-1.0);
+    text_7 = visual.TextStim(win=win, name='text_7',
+        text="Press 'esc' twice whem you are done viewing the number",
+        font='Arial',
+        units='norm', pos=(0, -0.2), draggable=False, height=0.08, wrapWidth=None, ori=0.0, 
+        color='black', colorSpace='rgb', opacity=1.0, 
+        languageStyle='LTR',
+        depth=-3.0);
     
     # create some handy timers
     
@@ -693,88 +705,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     expInfo['expStart'] = data.getDateStr(
         format='%Y-%m-%d %Hh%M.%S.%f %z', fractionalSecondDigits=6
     )
-    
-    # --- Prepare to start Routine "set_up" ---
-    # create an object to store info about Routine set_up
-    set_up = data.Routine(
-        name='set_up',
-        components=[],
-    )
-    set_up.status = NOT_STARTED
-    continueRoutine = True
-    # update component parameters for each repeat
-    # store start times for set_up
-    set_up.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
-    set_up.tStart = globalClock.getTime(format='float')
-    set_up.status = STARTED
-    thisExp.addData('set_up.started', set_up.tStart)
-    set_up.maxDuration = None
-    # keep track of which components have finished
-    set_upComponents = set_up.components
-    for thisComponent in set_up.components:
-        thisComponent.tStart = None
-        thisComponent.tStop = None
-        thisComponent.tStartRefresh = None
-        thisComponent.tStopRefresh = None
-        if hasattr(thisComponent, 'status'):
-            thisComponent.status = NOT_STARTED
-    # reset timers
-    t = 0
-    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
-    frameN = -1
-    
-    # --- Run Routine "set_up" ---
-    set_up.forceEnded = routineForceEnded = not continueRoutine
-    while continueRoutine:
-        # get current time
-        t = routineTimer.getTime()
-        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
-        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
-        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-        # update/draw components on each frame
-        
-        # check for quit (typically the Esc key)
-        if defaultKeyboard.getKeys(keyList=["escape"]):
-            thisExp.status = FINISHED
-        if thisExp.status == FINISHED or endExpNow:
-            endExperiment(thisExp, win=win)
-            return
-        # pause experiment here if requested
-        if thisExp.status == PAUSED:
-            pauseExperiment(
-                thisExp=thisExp, 
-                win=win, 
-                timers=[routineTimer], 
-                playbackComponents=[]
-            )
-            # skip the frame we paused on
-            continue
-        
-        # check if all components have finished
-        if not continueRoutine:  # a component has requested a forced-end of Routine
-            set_up.forceEnded = routineForceEnded = True
-            break
-        continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in set_up.components:
-            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-                continueRoutine = True
-                break  # at least one component has not yet finished
-        
-        # refresh the screen
-        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-            win.flip()
-    
-    # --- Ending Routine "set_up" ---
-    for thisComponent in set_up.components:
-        if hasattr(thisComponent, "setAutoDraw"):
-            thisComponent.setAutoDraw(False)
-    # store stop times for set_up
-    set_up.tStop = globalClock.getTime(format='float')
-    set_up.tStopRefresh = tThisFlipGlobal
-    thisExp.addData('set_up.stopped', set_up.tStop)
-    thisExp.nextEntry()
-    # the Routine "set_up" was not non-slip safe, so reset the non-slip timer
-    routineTimer.reset()
     
     # --- Prepare to start Routine "start_p" ---
     # create an object to store info about Routine start_p
@@ -1750,21 +1680,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # create an object to store info about Routine p_vastness
     p_vastness = data.Routine(
         name='p_vastness',
-        components=[text_13, slider, text_14, mouse_4, text_4],
+        components=[text_13, slider, text_4, button],
     )
     p_vastness.status = NOT_STARTED
     continueRoutine = True
     # update component parameters for each repeat
     slider.reset()
-    # setup some python lists for storing info about the mouse_4
-    mouse_4.x = []
-    mouse_4.y = []
-    mouse_4.leftButton = []
-    mouse_4.midButton = []
-    mouse_4.rightButton = []
-    mouse_4.time = []
-    mouse_4.clicked_name = []
-    gotValidClick = False  # until a click is received
+    # reset button to account for continued clicks & clear times on/off
+    button.reset()
     # store start times for p_vastness
     p_vastness.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
     p_vastness.tStart = globalClock.getTime(format='float')
@@ -1835,66 +1758,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             # update params
             pass
         
-        # *text_14* updates
-        
-        # if text_14 is starting this frame...
-        if text_14.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            text_14.frameNStart = frameN  # exact frame index
-            text_14.tStart = t  # local t and not account for scr refresh
-            text_14.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text_14, 'tStartRefresh')  # time at next scr refresh
-            # add timestamp to datafile
-            thisExp.timestampOnFlip(win, 'text_14.started')
-            # update status
-            text_14.status = STARTED
-            text_14.setAutoDraw(True)
-        
-        # if text_14 is active this frame...
-        if text_14.status == STARTED:
-            # update params
-            pass
-        # *mouse_4* updates
-        
-        # if mouse_4 is starting this frame...
-        if mouse_4.status == NOT_STARTED and t >= 0.0-frameTolerance:
-            # keep track of start time/frame for later
-            mouse_4.frameNStart = frameN  # exact frame index
-            mouse_4.tStart = t  # local t and not account for scr refresh
-            mouse_4.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(mouse_4, 'tStartRefresh')  # time at next scr refresh
-            # add timestamp to datafile
-            thisExp.addData('mouse_4.started', t)
-            # update status
-            mouse_4.status = STARTED
-            mouse_4.mouseClock.reset()
-            prevButtonState = mouse_4.getPressed()  # if button is down already this ISN'T a new click
-        if mouse_4.status == STARTED:  # only update if started and not finished!
-            buttons = mouse_4.getPressed()
-            if buttons != prevButtonState:  # button state changed?
-                prevButtonState = buttons
-                if sum(buttons) > 0:  # state changed to a new click
-                    # check if the mouse was inside our 'clickable' objects
-                    gotValidClick = False
-                    clickableList = environmenttools.getFromNames(text_14, namespace=locals())
-                    for obj in clickableList:
-                        # is this object clicked on?
-                        if obj.contains(mouse_4):
-                            gotValidClick = True
-                            mouse_4.clicked_name.append(obj.name)
-                    if not gotValidClick:
-                        mouse_4.clicked_name.append(None)
-                    x, y = mouse_4.getPos()
-                    mouse_4.x.append(x)
-                    mouse_4.y.append(y)
-                    buttons = mouse_4.getPressed()
-                    mouse_4.leftButton.append(buttons[0])
-                    mouse_4.midButton.append(buttons[1])
-                    mouse_4.rightButton.append(buttons[2])
-                    mouse_4.time.append(mouse_4.mouseClock.getTime())
-                    if gotValidClick:
-                        continueRoutine = False  # end routine on response
-        
         # *text_4* updates
         
         # if text_4 is starting this frame...
@@ -1912,6 +1775,43 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if text_4.status == STARTED:
             # update params
             pass
+        # *button* updates
+        
+        # if button is starting this frame...
+        if button.status == NOT_STARTED and tThisFlip >= 0-frameTolerance:
+            # keep track of start time/frame for later
+            button.frameNStart = frameN  # exact frame index
+            button.tStart = t  # local t and not account for scr refresh
+            button.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(button, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'button.started')
+            # update status
+            button.status = STARTED
+            win.callOnFlip(button.buttonClock.reset)
+            button.setAutoDraw(True)
+        
+        # if button is active this frame...
+        if button.status == STARTED:
+            # update params
+            pass
+            # check whether button has been pressed
+            if button.isClicked:
+                if not button.wasClicked:
+                    # if this is a new click, store time of first click and clicked until
+                    button.timesOn.append(button.buttonClock.getTime())
+                    button.timesOff.append(button.buttonClock.getTime())
+                elif len(button.timesOff):
+                    # if click is continuing from last frame, update time of clicked until
+                    button.timesOff[-1] = button.buttonClock.getTime()
+                if not button.wasClicked:
+                    # end routine when button is clicked
+                    continueRoutine = False
+                if not button.wasClicked:
+                    # run callback code when button is clicked
+                    pass
+        # take note of whether button was clicked, so that next frame we know if clicks are new
+        button.wasClicked = button.isClicked and button.status == STARTED
         
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -1954,14 +1854,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     thisExp.addData('p_vastness.stopped', p_vastness.tStop)
     thisExp.addData('slider.response', slider.getRating())
     thisExp.addData('slider.rt', slider.getRT())
-    # store data for thisExp (ExperimentHandler)
-    thisExp.addData('mouse_4.x', mouse_4.x)
-    thisExp.addData('mouse_4.y', mouse_4.y)
-    thisExp.addData('mouse_4.leftButton', mouse_4.leftButton)
-    thisExp.addData('mouse_4.midButton', mouse_4.midButton)
-    thisExp.addData('mouse_4.rightButton', mouse_4.rightButton)
-    thisExp.addData('mouse_4.time', mouse_4.time)
-    thisExp.addData('mouse_4.clicked_name', mouse_4.clicked_name)
+    thisExp.addData('button.numClicks', button.numClicks)
+    if button.numClicks:
+       thisExp.addData('button.timesOn', button.timesOn)
+       thisExp.addData('button.timesOff', button.timesOff)
+    else:
+       thisExp.addData('button.timesOn', "")
+       thisExp.addData('button.timesOff', "")
     thisExp.nextEntry()
     # the Routine "p_vastness" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -1970,14 +1869,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     trials = data.TrialHandler2(
         name='trials',
         nReps=1.0, 
-        method='sequential', 
+        method='random', 
         extraInfo=expInfo, 
         originPath=-1, 
-        trialList=data.importConditions(
-        'image.durations.full.csv', 
-        selection=Array.from({length: stimuli.length}, (_, i) => i).filter(i => stimuli[i].group == expInfo['What letter were you given?'])
-    )
-    , 
+        trialList=data.importConditions(expInfo['conditionFile']), 
         seed=None, 
     )
     thisExp.addLoop(trials)  # add the loop to the experiment
@@ -3220,6 +3115,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         key_resp_2.keys = []
         key_resp_2.rt = []
         _key_resp_2_allKeys = []
+        # Run 'Begin Routine' code from code_2
+        # Run on trials 10, 20, 30... (indices 9, 19, 29...)
+        if (trials.thisN + 1) % 10 != 0:  # +1 to convert to 1-indexed
+            continueRoutine = False
         # store start times for catch
         catch.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
         catch.tStart = globalClock.getTime(format='float')
@@ -3356,7 +3255,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # create an object to store info about Routine end
     end = data.Routine(
         name='end',
-        components=[text_2, text_6],
+        components=[text_2, text_6, text_7],
     )
     end.status = NOT_STARTED
     continueRoutine = True
@@ -3420,14 +3319,30 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             text_6.tStart = t  # local t and not account for scr refresh
             text_6.tStartRefresh = tThisFlipGlobal  # on global time
             win.timeOnFlip(text_6, 'tStartRefresh')  # time at next scr refresh
-            # add timestamp to datafile
-            thisExp.timestampOnFlip(win, 'text_6.started')
             # update status
             text_6.status = STARTED
             text_6.setAutoDraw(True)
         
         # if text_6 is active this frame...
         if text_6.status == STARTED:
+            # update params
+            pass
+        
+        # *text_7* updates
+        
+        # if text_7 is starting this frame...
+        if text_7.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            text_7.frameNStart = frameN  # exact frame index
+            text_7.tStart = t  # local t and not account for scr refresh
+            text_7.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(text_7, 'tStartRefresh')  # time at next scr refresh
+            # update status
+            text_7.status = STARTED
+            text_7.setAutoDraw(True)
+        
+        # if text_7 is active this frame...
+        if text_7.status == STARTED:
             # update params
             pass
         
