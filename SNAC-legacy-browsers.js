@@ -3584,12 +3584,28 @@ async function quitPsychoJS(message, isCompleted) {
   psychoJS._saveResults = 0;
   
   // Generate filename for results
-  let filename = expInfo['Please keep this number!'] + '_' + 'raw' + '.csv';
+  let filename = expInfo['Please keep this number!'] + '.csv';
   
   // Extract data object from experiment
   let dataObj = psychoJS._experiment._trialsData;
   
-  // Step 1: Collect ALL unique keys from every trial (all possible columns)
+  // Define the columns to keep and their new names
+  let columnMapping = {
+      'Please keep this number!': 'ID',
+      'group': 'group',
+      'equation': 'equation',
+      'answer': 'correct_answer',
+      'answer_end.clicked_name': 'ppt_answer',
+      'duration': 'act_time',
+      'imagename': 'imagename',
+      'end_time_mouse.time': 'est_time',
+      'vastness_answer.response': 'vast_score'
+  };
+  
+  // Get the list of original column names to keep
+  let columnsToKeep = Object.keys(columnMapping);
+  
+  // Step 1: Collect ALL unique keys from every trial (to identify all possible columns)
   let allPossibleKeys = new Set();
   dataObj.forEach(trial => {
       Object.keys(trial).forEach(key => {
@@ -3597,37 +3613,36 @@ async function quitPsychoJS(message, isCompleted) {
       });
   });
   
-  // Convert Set to Array and sort (optional, for consistent order)
-  let masterHeader = Array.from(allPossibleKeys).sort();
-  
-  // Step 2: Create a function that ensures every row has all columns
-  function normalizeTrial(trial, masterHeader) {
-      let normalizedRow = {};
-      masterHeader.forEach(key => {
-          if (trial.hasOwnProperty(key) && trial[key] !== undefined && trial[key] !== null) {
+  // Step 2: Create a function that extracts only the columns we want
+  function extractAndRenameTrial(trial, columnsToKeep, columnMapping) {
+      let extractedRow = {};
+      columnsToKeep.forEach(originalKey => {
+          let newKey = columnMapping[originalKey];
+          let value = '';
+          
+          // Check if the trial has this key and it's not undefined/null
+          if (trial.hasOwnProperty(originalKey) && trial[originalKey] !== undefined && trial[originalKey] !== null) {
+              value = trial[originalKey];
               // Handle arrays/objects by converting to JSON string
-              if (typeof trial[key] === 'object') {
-                  normalizedRow[key] = JSON.stringify(trial[key]);
-              } else {
-                  normalizedRow[key] = trial[key];
+              if (typeof value === 'object') {
+                  value = JSON.stringify(value);
               }
-          } else {
-              // Fill missing values with empty string
-              normalizedRow[key] = '';
           }
+          extractedRow[newKey] = value;
       });
-      return normalizedRow;
+      return extractedRow;
   }
   
-  // Step 3: Normalize all trials
-  let normalizedData = dataObj.map(trial => normalizeTrial(trial, masterHeader));
+  // Step 3: Extract and rename data for all trials
+  let filteredData = dataObj.map(trial => extractAndRenameTrial(trial, columnsToKeep, columnMapping));
   
-  // Step 4: Convert normalized data to CSV with complete headers
-  let data = [masterHeader.join(',')]; // Header row with ALL columns
+  // Step 4: Convert filtered data to CSV
+  let headers = Object.keys(columnMapping).map(key => columnMapping[key]); // Get renamed headers
+  let data = [headers.join(',')]; // Header row with renamed columns
   
-  normalizedData.forEach(row => {
-      let rowValues = masterHeader.map(key => {
-          let value = row[key];
+  filteredData.forEach(row => {
+      let rowValues = headers.map(header => {
+          let value = row[header];
           // Handle values that might contain commas or quotes
           if (typeof value === 'string' && (value.includes(',') || value.includes('"'))) {
               return '"' + value.replace(/"/g, '""') + '"';
@@ -3640,9 +3655,9 @@ async function quitPsychoJS(message, isCompleted) {
   let finalCSV = data.join('\n');
   
   // Send data to OSF via DataPipe
-  console.log('Saving data with unified headers...');
-  console.log('Total columns:', masterHeader.length);
-  console.log('Total rows:', normalizedData.length);
+  console.log('Saving data with filtered columns...');
+  console.log('Columns:', headers.join(', '));
+  console.log('Total rows:', filteredData.length);
   
   fetch('https://pipe.jspsych.org/api/data', {
       method: 'POST',
