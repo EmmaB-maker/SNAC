@@ -3293,32 +3293,83 @@ async function quitPsychoJS(message, isCompleted) {
   psychoJS._saveResults = 0;
   
   // Generate filename for results
-  let filename = psychoJS._experiment._experimentName + '_' + psychoJS._experiment._datetime + '.csv';
+  let filename = expInfo['Please keep this number!'] + '_' + 'raw' + '.csv';
   
   // Extract data object from experiment
   let dataObj = psychoJS._experiment._trialsData;
   
-  // Convert data object to CSV
-  let data = [Object.keys(dataObj[0])].concat(dataObj).map(it => {
-      return Object.values(it).toString()
-  }).join('\n')
+  // Step 1: Collect ALL unique keys from every trial (all possible columns)
+  let allPossibleKeys = new Set();
+  dataObj.forEach(trial => {
+      Object.keys(trial).forEach(key => {
+          allPossibleKeys.add(key);
+      });
+  });
+  
+  // Convert Set to Array and sort (optional, for consistent order)
+  let masterHeader = Array.from(allPossibleKeys).sort();
+  
+  // Step 2: Create a function that ensures every row has all columns
+  function normalizeTrial(trial, masterHeader) {
+      let normalizedRow = {};
+      masterHeader.forEach(key => {
+          if (trial.hasOwnProperty(key) && trial[key] !== undefined && trial[key] !== null) {
+              // Handle arrays/objects by converting to JSON string
+              if (typeof trial[key] === 'object') {
+                  normalizedRow[key] = JSON.stringify(trial[key]);
+              } else {
+                  normalizedRow[key] = trial[key];
+              }
+          } else {
+              // Fill missing values with empty string
+              normalizedRow[key] = '';
+          }
+      });
+      return normalizedRow;
+  }
+  
+  // Step 3: Normalize all trials
+  let normalizedData = dataObj.map(trial => normalizeTrial(trial, masterHeader));
+  
+  // Step 4: Convert normalized data to CSV with complete headers
+  let data = [masterHeader.join(',')]; // Header row with ALL columns
+  
+  normalizedData.forEach(row => {
+      let rowValues = masterHeader.map(key => {
+          let value = row[key];
+          // Handle values that might contain commas or quotes
+          if (typeof value === 'string' && (value.includes(',') || value.includes('"'))) {
+              return '"' + value.replace(/"/g, '""') + '"';
+          }
+          return value;
+      });
+      data.push(rowValues.join(','));
+  });
+  
+  let finalCSV = data.join('\n');
   
   // Send data to OSF via DataPipe
-  console.log('Saving data...');
+  console.log('Saving data with unified headers...');
+  console.log('Total columns:', masterHeader.length);
+  console.log('Total rows:', normalizedData.length);
+  
   fetch('https://pipe.jspsych.org/api/data', {
       method: 'POST',
       headers: {
-      'Content-Type': 'application/json',
-      Accept: '*/*',
+          'Content-Type': 'application/json',
+          Accept: '*/*',
       },
       body: JSON.stringify({
-      experimentID: 'XXXXXXXXXXXXX', // * UPDATE WITH YOUR DATAPIKE EXPERIMENT ID *
-      filename: filename,
-      data: data,
+          experimentID: 'Jbc9toAnfsBP', // * UPDATE WITH YOUR DATAPIKE EXPERIMENT ID *
+          filename: filename,
+          data: finalCSV,
       }),
   }).then(response => response.json()).then(data => {
       // Log response and force experiment end
       console.log(data);
+      quitPsychoJS();
+  }).catch(error => {
+      console.error('Error saving data:', error);
       quitPsychoJS();
   });
   psychoJS.window.close();
