@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.2.4),
-    on April 29, 2026, at 13:21
+    on May 01, 2026, at 15:00
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -466,10 +466,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     mouse_3.mouseClock = core.Clock()
     
     # --- Initialize components for Routine "p_vastness" ---
-    text_13 = visual.TextStim(win=win, name='text_13',
+    vast_Q = visual.TextStim(win=win, name='vast_Q',
         text='How vast was the image?',
         font='Arial',
-        units='norm', pos=(0, 0.18), draggable=False, height=0.1, wrapWidth=None, ori=0.0, 
+        units='norm', pos=(0, 0.2), draggable=False, height=0.1, wrapWidth=None, ori=0.0, 
         color='black', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=0.0);
@@ -480,30 +480,30 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         labelColor='LightGray', markerColor='Red', lineColor='DarkGray', colorSpace='rgb',
         font='Open Sans', labelHeight=0.035,
         flip=False, ori=0.0, depth=-1, readOnly=False)
-    text_4 = visual.TextStim(win=win, name='text_4',
+    mouse_4 = event.Mouse(win=win)
+    x, y = [None, None]
+    mouse_4.mouseClock = core.Clock()
+    define_vast = visual.TextStim(win=win, name='define_vast',
         text='Vastness: a perceptual phenomenon that occurs when a space seems to extend to very far distances, seemingly without limit.',
         font='Arial',
-        units='norm', pos=(0, 0.3), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
+        units='norm', pos=(0, 0.4), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
         color='gray', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
-        depth=-2.0);
-    button = visual.ButtonStim(win, 
-        text='Submit Score', font='Arial',
-        pos=(0, -0.3),units='norm',
-        letterHeight=0.08,
-        size=(0.4, 0.1), 
-        ori=0.0
-        ,borderWidth=1.0,
-        fillColor='darkgrey', borderColor=None,
-        color='black', colorSpace='rgb',
-        opacity=None,
-        bold=False, italic=True,
-        padding=None,
-        anchor='center',
-        name='button',
-        depth=-3
-    )
-    button.buttonClock = core.Clock()
+        depth=-3.0);
+    Submit_score_button = visual.Rect(
+        win=win, name='Submit_score_button',units='norm', 
+        width=(0.4, 0.1)[0], height=(0.4, 0.1)[1],
+        ori=0.0, pos=(0, -0.3), draggable=False, anchor='center',
+        lineWidth=1.0,
+        colorSpace='rgb', lineColor='black', fillColor='#b9b9b9',
+        opacity=None, depth=-4.0, interpolate=True)
+    Submit_score = visual.TextStim(win=win, name='Submit_score',
+        text='Submit Score',
+        font='Arial',
+        units='norm', pos=(0, -0.3), draggable=False, height=0.08, wrapWidth=None, ori=0.0, 
+        color='black', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-5.0);
     
     # --- Initialize components for Routine "start_e" ---
     text = visual.TextStim(win=win, name='text',
@@ -613,41 +613,48 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     end_time_mouse.mouseClock = core.Clock()
     
     # --- Initialize components for Routine "vastness" ---
-    vast = visual.TextStim(win=win, name='vast',
+    vast_Q_2 = visual.TextStim(win=win, name='vast_Q_2',
         text='How vast was the image?',
         font='Arial',
-        units='norm', pos=(0, .18), draggable=False, height=0.08, wrapWidth=None, ori=0.0, 
+        units='norm', pos=(0, 0.2), draggable=False, height=0.1, wrapWidth=None, ori=0.0, 
         color='black', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
         depth=0.0);
-    vast_answer = visual.Slider(win=win, name='vast_answer',
+    slider_2 = visual.Slider(win=win, name='slider_2',
         startValue=50, size=(1.0, 0.1), pos=(0, 0), units='height',
-        labels=[0,100], ticks=(0,100), granularity=0.0,
+        labels=[0, 100], ticks=(0, 100), granularity=0.0,
         style='scrollbar', styleTweaks=('triangleMarker',), opacity=1.0,
         labelColor='LightGray', markerColor='Red', lineColor='DarkGray', colorSpace='rgb',
         font='Open Sans', labelHeight=0.035,
         flip=False, ori=0.0, depth=-1, readOnly=False)
-    next = visual.TextStim(win=win, name='next',
-        text='Submit Score',
-        font='Arial',
-        units='norm', pos=(0, -.18), draggable=False, height=0.08, wrapWidth=None, ori=0.0, 
-        color='gray', colorSpace='rgb', opacity=1.0, 
-        languageStyle='LTR',
-        depth=-2.0);
-    vast_mouse = event.Mouse(win=win)
+    mouse_6 = event.Mouse(win=win)
     x, y = [None, None]
-    vast_mouse.mouseClock = core.Clock()
-    text_5 = visual.TextStim(win=win, name='text_5',
+    mouse_6.mouseClock = core.Clock()
+    define_vast_2 = visual.TextStim(win=win, name='define_vast_2',
         text='Vastness: a perceptual phenomenon that occurs when a space seems to extend to very far distances, seemingly without limit.',
         font='Arial',
-        units='norm', pos=(0, 0.3), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
+        units='norm', pos=(0, 0.4), draggable=False, height=0.05, wrapWidth=None, ori=0.0, 
         color='gray', colorSpace='rgb', opacity=1.0, 
         languageStyle='LTR',
-        depth=-4.0);
+        depth=-3.0);
+    Submit_score_button_2 = visual.Rect(
+        win=win, name='Submit_score_button_2',units='norm', 
+        width=(0.4, 0.1)[0], height=(0.4, 0.1)[1],
+        ori=0.0, pos=(0, -0.3), draggable=False, anchor='center',
+        lineWidth=1.0,
+        colorSpace='rgb', lineColor='black', fillColor='#b9b9b9',
+        opacity=None, depth=-4.0, interpolate=True)
+    Submit_score_2 = visual.TextStim(win=win, name='Submit_score_2',
+        text='Submit Score',
+        font='Arial',
+        units='norm', pos=(0, -0.3), draggable=False, height=0.08, wrapWidth=None, ori=0.0, 
+        color='black', colorSpace='rgb', opacity=None, 
+        languageStyle='LTR',
+        depth=-5.0);
     
     # --- Initialize components for Routine "catch" ---
     text_3 = visual.TextStim(win=win, name='text_3',
-        text='Press "c" to continue with the study.',
+        text=None,
         font='Arial',
         units='norm', pos=(0, 0), draggable=False, height=0.08, wrapWidth=None, ori=0.0, 
         color='black', colorSpace='rgb', opacity=1.0, 
@@ -1680,14 +1687,21 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # create an object to store info about Routine p_vastness
     p_vastness = data.Routine(
         name='p_vastness',
-        components=[text_13, slider, text_4, button],
+        components=[vast_Q, slider, mouse_4, define_vast, Submit_score_button, Submit_score],
     )
     p_vastness.status = NOT_STARTED
     continueRoutine = True
     # update component parameters for each repeat
     slider.reset()
-    # reset button to account for continued clicks & clear times on/off
-    button.reset()
+    # setup some python lists for storing info about the mouse_4
+    mouse_4.x = []
+    mouse_4.y = []
+    mouse_4.leftButton = []
+    mouse_4.midButton = []
+    mouse_4.rightButton = []
+    mouse_4.time = []
+    mouse_4.clicked_name = []
+    gotValidClick = False  # until a click is received
     # store start times for p_vastness
     p_vastness.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
     p_vastness.tStart = globalClock.getTime(format='float')
@@ -1718,23 +1732,23 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
         
-        # *text_13* updates
+        # *vast_Q* updates
         
-        # if text_13 is starting this frame...
-        if text_13.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # if vast_Q is starting this frame...
+        if vast_Q.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
             # keep track of start time/frame for later
-            text_13.frameNStart = frameN  # exact frame index
-            text_13.tStart = t  # local t and not account for scr refresh
-            text_13.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text_13, 'tStartRefresh')  # time at next scr refresh
+            vast_Q.frameNStart = frameN  # exact frame index
+            vast_Q.tStart = t  # local t and not account for scr refresh
+            vast_Q.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(vast_Q, 'tStartRefresh')  # time at next scr refresh
             # add timestamp to datafile
-            thisExp.timestampOnFlip(win, 'text_13.started')
+            thisExp.timestampOnFlip(win, 'vast_Q.started')
             # update status
-            text_13.status = STARTED
-            text_13.setAutoDraw(True)
+            vast_Q.status = STARTED
+            vast_Q.setAutoDraw(True)
         
-        # if text_13 is active this frame...
-        if text_13.status == STARTED:
+        # if vast_Q is active this frame...
+        if vast_Q.status == STARTED:
             # update params
             pass
         
@@ -1757,61 +1771,104 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if slider.status == STARTED:
             # update params
             pass
+        # *mouse_4* updates
         
-        # *text_4* updates
-        
-        # if text_4 is starting this frame...
-        if text_4.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # if mouse_4 is starting this frame...
+        if mouse_4.status == NOT_STARTED and t >= 0.0-frameTolerance:
             # keep track of start time/frame for later
-            text_4.frameNStart = frameN  # exact frame index
-            text_4.tStart = t  # local t and not account for scr refresh
-            text_4.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(text_4, 'tStartRefresh')  # time at next scr refresh
-            # update status
-            text_4.status = STARTED
-            text_4.setAutoDraw(True)
-        
-        # if text_4 is active this frame...
-        if text_4.status == STARTED:
-            # update params
-            pass
-        # *button* updates
-        
-        # if button is starting this frame...
-        if button.status == NOT_STARTED and tThisFlip >= 0-frameTolerance:
-            # keep track of start time/frame for later
-            button.frameNStart = frameN  # exact frame index
-            button.tStart = t  # local t and not account for scr refresh
-            button.tStartRefresh = tThisFlipGlobal  # on global time
-            win.timeOnFlip(button, 'tStartRefresh')  # time at next scr refresh
+            mouse_4.frameNStart = frameN  # exact frame index
+            mouse_4.tStart = t  # local t and not account for scr refresh
+            mouse_4.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(mouse_4, 'tStartRefresh')  # time at next scr refresh
             # add timestamp to datafile
-            thisExp.timestampOnFlip(win, 'button.started')
+            thisExp.addData('mouse_4.started', t)
             # update status
-            button.status = STARTED
-            win.callOnFlip(button.buttonClock.reset)
-            button.setAutoDraw(True)
+            mouse_4.status = STARTED
+            mouse_4.mouseClock.reset()
+            prevButtonState = mouse_4.getPressed()  # if button is down already this ISN'T a new click
+        if mouse_4.status == STARTED:  # only update if started and not finished!
+            buttons = mouse_4.getPressed()
+            if buttons != prevButtonState:  # button state changed?
+                prevButtonState = buttons
+                if sum(buttons) > 0:  # state changed to a new click
+                    # check if the mouse was inside our 'clickable' objects
+                    gotValidClick = False
+                    clickableList = environmenttools.getFromNames([Submit_score, Submit_score_button], namespace=locals())
+                    for obj in clickableList:
+                        # is this object clicked on?
+                        if obj.contains(mouse_4):
+                            gotValidClick = True
+                            mouse_4.clicked_name.append(obj.name)
+                    if not gotValidClick:
+                        mouse_4.clicked_name.append(None)
+                    x, y = mouse_4.getPos()
+                    mouse_4.x.append(x)
+                    mouse_4.y.append(y)
+                    buttons = mouse_4.getPressed()
+                    mouse_4.leftButton.append(buttons[0])
+                    mouse_4.midButton.append(buttons[1])
+                    mouse_4.rightButton.append(buttons[2])
+                    mouse_4.time.append(mouse_4.mouseClock.getTime())
+                    if gotValidClick:
+                        continueRoutine = False  # end routine on response
         
-        # if button is active this frame...
-        if button.status == STARTED:
+        # *define_vast* updates
+        
+        # if define_vast is starting this frame...
+        if define_vast.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            define_vast.frameNStart = frameN  # exact frame index
+            define_vast.tStart = t  # local t and not account for scr refresh
+            define_vast.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(define_vast, 'tStartRefresh')  # time at next scr refresh
+            # update status
+            define_vast.status = STARTED
+            define_vast.setAutoDraw(True)
+        
+        # if define_vast is active this frame...
+        if define_vast.status == STARTED:
             # update params
             pass
-            # check whether button has been pressed
-            if button.isClicked:
-                if not button.wasClicked:
-                    # if this is a new click, store time of first click and clicked until
-                    button.timesOn.append(button.buttonClock.getTime())
-                    button.timesOff.append(button.buttonClock.getTime())
-                elif len(button.timesOff):
-                    # if click is continuing from last frame, update time of clicked until
-                    button.timesOff[-1] = button.buttonClock.getTime()
-                if not button.wasClicked:
-                    # end routine when button is clicked
-                    continueRoutine = False
-                if not button.wasClicked:
-                    # run callback code when button is clicked
-                    pass
-        # take note of whether button was clicked, so that next frame we know if clicks are new
-        button.wasClicked = button.isClicked and button.status == STARTED
+        
+        # *Submit_score_button* updates
+        
+        # if Submit_score_button is starting this frame...
+        if Submit_score_button.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            Submit_score_button.frameNStart = frameN  # exact frame index
+            Submit_score_button.tStart = t  # local t and not account for scr refresh
+            Submit_score_button.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(Submit_score_button, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'Submit_score_button.started')
+            # update status
+            Submit_score_button.status = STARTED
+            Submit_score_button.setAutoDraw(True)
+        
+        # if Submit_score_button is active this frame...
+        if Submit_score_button.status == STARTED:
+            # update params
+            pass
+        
+        # *Submit_score* updates
+        
+        # if Submit_score is starting this frame...
+        if Submit_score.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            Submit_score.frameNStart = frameN  # exact frame index
+            Submit_score.tStart = t  # local t and not account for scr refresh
+            Submit_score.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(Submit_score, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'Submit_score.started')
+            # update status
+            Submit_score.status = STARTED
+            Submit_score.setAutoDraw(True)
+        
+        # if Submit_score is active this frame...
+        if Submit_score.status == STARTED:
+            # update params
+            pass
         
         # check for quit (typically the Esc key)
         if defaultKeyboard.getKeys(keyList=["escape"]):
@@ -1854,13 +1911,14 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     thisExp.addData('p_vastness.stopped', p_vastness.tStop)
     thisExp.addData('slider.response', slider.getRating())
     thisExp.addData('slider.rt', slider.getRT())
-    thisExp.addData('button.numClicks', button.numClicks)
-    if button.numClicks:
-       thisExp.addData('button.timesOn', button.timesOn)
-       thisExp.addData('button.timesOff', button.timesOff)
-    else:
-       thisExp.addData('button.timesOn', "")
-       thisExp.addData('button.timesOff', "")
+    # store data for thisExp (ExperimentHandler)
+    thisExp.addData('mouse_4.x', mouse_4.x)
+    thisExp.addData('mouse_4.y', mouse_4.y)
+    thisExp.addData('mouse_4.leftButton', mouse_4.leftButton)
+    thisExp.addData('mouse_4.midButton', mouse_4.midButton)
+    thisExp.addData('mouse_4.rightButton', mouse_4.rightButton)
+    thisExp.addData('mouse_4.time', mouse_4.time)
+    thisExp.addData('mouse_4.clicked_name', mouse_4.clicked_name)
     thisExp.nextEntry()
     # the Routine "p_vastness" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
@@ -2887,20 +2945,20 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # create an object to store info about Routine vastness
         vastness = data.Routine(
             name='vastness',
-            components=[vast, vast_answer, next, vast_mouse, text_5],
+            components=[vast_Q_2, slider_2, mouse_6, define_vast_2, Submit_score_button_2, Submit_score_2],
         )
         vastness.status = NOT_STARTED
         continueRoutine = True
         # update component parameters for each repeat
-        vast_answer.reset()
-        # setup some python lists for storing info about the vast_mouse
-        vast_mouse.x = []
-        vast_mouse.y = []
-        vast_mouse.leftButton = []
-        vast_mouse.midButton = []
-        vast_mouse.rightButton = []
-        vast_mouse.time = []
-        vast_mouse.clicked_name = []
+        slider_2.reset()
+        # setup some python lists for storing info about the mouse_6
+        mouse_6.x = []
+        mouse_6.y = []
+        mouse_6.leftButton = []
+        mouse_6.midButton = []
+        mouse_6.rightButton = []
+        mouse_6.time = []
+        mouse_6.clicked_name = []
         gotValidClick = False  # until a click is received
         # store start times for vastness
         vastness.tStartRefresh = win.getFutureFlipTime(clock=globalClock)
@@ -2935,119 +2993,141 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
             # update/draw components on each frame
             
-            # *vast* updates
+            # *vast_Q_2* updates
             
-            # if vast is starting this frame...
-            if vast.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # if vast_Q_2 is starting this frame...
+            if vast_Q_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
-                vast.frameNStart = frameN  # exact frame index
-                vast.tStart = t  # local t and not account for scr refresh
-                vast.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(vast, 'tStartRefresh')  # time at next scr refresh
+                vast_Q_2.frameNStart = frameN  # exact frame index
+                vast_Q_2.tStart = t  # local t and not account for scr refresh
+                vast_Q_2.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(vast_Q_2, 'tStartRefresh')  # time at next scr refresh
                 # add timestamp to datafile
-                thisExp.timestampOnFlip(win, 'vast.started')
+                thisExp.timestampOnFlip(win, 'vast_Q_2.started')
                 # update status
-                vast.status = STARTED
-                vast.setAutoDraw(True)
+                vast_Q_2.status = STARTED
+                vast_Q_2.setAutoDraw(True)
             
-            # if vast is active this frame...
-            if vast.status == STARTED:
+            # if vast_Q_2 is active this frame...
+            if vast_Q_2.status == STARTED:
                 # update params
                 pass
             
-            # *vast_answer* updates
+            # *slider_2* updates
             
-            # if vast_answer is starting this frame...
-            if vast_answer.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # if slider_2 is starting this frame...
+            if slider_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
-                vast_answer.frameNStart = frameN  # exact frame index
-                vast_answer.tStart = t  # local t and not account for scr refresh
-                vast_answer.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(vast_answer, 'tStartRefresh')  # time at next scr refresh
+                slider_2.frameNStart = frameN  # exact frame index
+                slider_2.tStart = t  # local t and not account for scr refresh
+                slider_2.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(slider_2, 'tStartRefresh')  # time at next scr refresh
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'slider_2.started')
                 # update status
-                vast_answer.status = STARTED
-                vast_answer.setAutoDraw(True)
+                slider_2.status = STARTED
+                slider_2.setAutoDraw(True)
             
-            # if vast_answer is active this frame...
-            if vast_answer.status == STARTED:
+            # if slider_2 is active this frame...
+            if slider_2.status == STARTED:
                 # update params
                 pass
+            # *mouse_6* updates
             
-            # *next* updates
-            
-            # if next is starting this frame...
-            if next.status == NOT_STARTED and vast_answer.getRating() is not None:
+            # if mouse_6 is starting this frame...
+            if mouse_6.status == NOT_STARTED and t >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
-                next.frameNStart = frameN  # exact frame index
-                next.tStart = t  # local t and not account for scr refresh
-                next.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(next, 'tStartRefresh')  # time at next scr refresh
+                mouse_6.frameNStart = frameN  # exact frame index
+                mouse_6.tStart = t  # local t and not account for scr refresh
+                mouse_6.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(mouse_6, 'tStartRefresh')  # time at next scr refresh
                 # add timestamp to datafile
-                thisExp.timestampOnFlip(win, 'next.started')
+                thisExp.addData('mouse_6.started', t)
                 # update status
-                next.status = STARTED
-                next.setAutoDraw(True)
-            
-            # if next is active this frame...
-            if next.status == STARTED:
-                # update params
-                pass
-            # *vast_mouse* updates
-            
-            # if vast_mouse is starting this frame...
-            if vast_mouse.status == NOT_STARTED and t >= 0.0-frameTolerance:
-                # keep track of start time/frame for later
-                vast_mouse.frameNStart = frameN  # exact frame index
-                vast_mouse.tStart = t  # local t and not account for scr refresh
-                vast_mouse.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(vast_mouse, 'tStartRefresh')  # time at next scr refresh
-                # add timestamp to datafile
-                thisExp.addData('vast_mouse.started', t)
-                # update status
-                vast_mouse.status = STARTED
-                vast_mouse.mouseClock.reset()
-                prevButtonState = vast_mouse.getPressed()  # if button is down already this ISN'T a new click
-            if vast_mouse.status == STARTED:  # only update if started and not finished!
-                buttons = vast_mouse.getPressed()
+                mouse_6.status = STARTED
+                mouse_6.mouseClock.reset()
+                prevButtonState = mouse_6.getPressed()  # if button is down already this ISN'T a new click
+            if mouse_6.status == STARTED:  # only update if started and not finished!
+                buttons = mouse_6.getPressed()
                 if buttons != prevButtonState:  # button state changed?
                     prevButtonState = buttons
                     if sum(buttons) > 0:  # state changed to a new click
                         # check if the mouse was inside our 'clickable' objects
                         gotValidClick = False
-                        clickableList = environmenttools.getFromNames(next, namespace=locals())
+                        clickableList = environmenttools.getFromNames([Submit_score_2, Submit_score_button_2], namespace=locals())
                         for obj in clickableList:
                             # is this object clicked on?
-                            if obj.contains(vast_mouse):
+                            if obj.contains(mouse_6):
                                 gotValidClick = True
-                                vast_mouse.clicked_name.append(obj.name)
+                                mouse_6.clicked_name.append(obj.name)
                         if not gotValidClick:
-                            vast_mouse.clicked_name.append(None)
-                        x, y = vast_mouse.getPos()
-                        vast_mouse.x.append(x)
-                        vast_mouse.y.append(y)
-                        buttons = vast_mouse.getPressed()
-                        vast_mouse.leftButton.append(buttons[0])
-                        vast_mouse.midButton.append(buttons[1])
-                        vast_mouse.rightButton.append(buttons[2])
-                        vast_mouse.time.append(vast_mouse.mouseClock.getTime())
+                            mouse_6.clicked_name.append(None)
+                        x, y = mouse_6.getPos()
+                        mouse_6.x.append(x)
+                        mouse_6.y.append(y)
+                        buttons = mouse_6.getPressed()
+                        mouse_6.leftButton.append(buttons[0])
+                        mouse_6.midButton.append(buttons[1])
+                        mouse_6.rightButton.append(buttons[2])
+                        mouse_6.time.append(mouse_6.mouseClock.getTime())
                         if gotValidClick:
                             continueRoutine = False  # end routine on response
             
-            # *text_5* updates
+            # *define_vast_2* updates
             
-            # if text_5 is starting this frame...
-            if text_5.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # if define_vast_2 is starting this frame...
+            if define_vast_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
                 # keep track of start time/frame for later
-                text_5.frameNStart = frameN  # exact frame index
-                text_5.tStart = t  # local t and not account for scr refresh
-                text_5.tStartRefresh = tThisFlipGlobal  # on global time
-                win.timeOnFlip(text_5, 'tStartRefresh')  # time at next scr refresh
+                define_vast_2.frameNStart = frameN  # exact frame index
+                define_vast_2.tStart = t  # local t and not account for scr refresh
+                define_vast_2.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(define_vast_2, 'tStartRefresh')  # time at next scr refresh
                 # update status
-                text_5.status = STARTED
-                text_5.setAutoDraw(True)
+                define_vast_2.status = STARTED
+                define_vast_2.setAutoDraw(True)
             
-            # if text_5 is active this frame...
-            if text_5.status == STARTED:
+            # if define_vast_2 is active this frame...
+            if define_vast_2.status == STARTED:
+                # update params
+                pass
+            
+            # *Submit_score_button_2* updates
+            
+            # if Submit_score_button_2 is starting this frame...
+            if Submit_score_button_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                Submit_score_button_2.frameNStart = frameN  # exact frame index
+                Submit_score_button_2.tStart = t  # local t and not account for scr refresh
+                Submit_score_button_2.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(Submit_score_button_2, 'tStartRefresh')  # time at next scr refresh
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'Submit_score_button_2.started')
+                # update status
+                Submit_score_button_2.status = STARTED
+                Submit_score_button_2.setAutoDraw(True)
+            
+            # if Submit_score_button_2 is active this frame...
+            if Submit_score_button_2.status == STARTED:
+                # update params
+                pass
+            
+            # *Submit_score_2* updates
+            
+            # if Submit_score_2 is starting this frame...
+            if Submit_score_2.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+                # keep track of start time/frame for later
+                Submit_score_2.frameNStart = frameN  # exact frame index
+                Submit_score_2.tStart = t  # local t and not account for scr refresh
+                Submit_score_2.tStartRefresh = tThisFlipGlobal  # on global time
+                win.timeOnFlip(Submit_score_2, 'tStartRefresh')  # time at next scr refresh
+                # add timestamp to datafile
+                thisExp.timestampOnFlip(win, 'Submit_score_2.started')
+                # update status
+                Submit_score_2.status = STARTED
+                Submit_score_2.setAutoDraw(True)
+            
+            # if Submit_score_2 is active this frame...
+            if Submit_score_2.status == STARTED:
                 # update params
                 pass
             
@@ -3090,15 +3170,16 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         vastness.tStop = globalClock.getTime(format='float')
         vastness.tStopRefresh = tThisFlipGlobal
         thisExp.addData('vastness.stopped', vastness.tStop)
-        trials.addData('vast_answer.response', vast_answer.getRating())
+        trials.addData('slider_2.response', slider_2.getRating())
+        trials.addData('slider_2.rt', slider_2.getRT())
         # store data for trials (TrialHandler)
-        trials.addData('vast_mouse.x', vast_mouse.x)
-        trials.addData('vast_mouse.y', vast_mouse.y)
-        trials.addData('vast_mouse.leftButton', vast_mouse.leftButton)
-        trials.addData('vast_mouse.midButton', vast_mouse.midButton)
-        trials.addData('vast_mouse.rightButton', vast_mouse.rightButton)
-        trials.addData('vast_mouse.time', vast_mouse.time)
-        trials.addData('vast_mouse.clicked_name', vast_mouse.clicked_name)
+        trials.addData('mouse_6.x', mouse_6.x)
+        trials.addData('mouse_6.y', mouse_6.y)
+        trials.addData('mouse_6.leftButton', mouse_6.leftButton)
+        trials.addData('mouse_6.midButton', mouse_6.midButton)
+        trials.addData('mouse_6.rightButton', mouse_6.rightButton)
+        trials.addData('mouse_6.time', mouse_6.time)
+        trials.addData('mouse_6.clicked_name', mouse_6.clicked_name)
         # the Routine "vastness" was not non-slip safe, so reset the non-slip timer
         routineTimer.reset()
         
@@ -3111,6 +3192,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         catch.status = NOT_STARTED
         continueRoutine = True
         # update component parameters for each repeat
+        text_3.setText('')
         # create starting attributes for key_resp_2
         key_resp_2.keys = []
         key_resp_2.rt = []
@@ -3186,7 +3268,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 # keyboard checking is just starting
                 key_resp_2.clock.reset()  # now t=0
             if key_resp_2.status == STARTED:
-                theseKeys = key_resp_2.getKeys(keyList=['c'], ignoreKeys=["escape"], waitRelease=False)
+                theseKeys = key_resp_2.getKeys(keyList=['c','a','g','o','t'], ignoreKeys=["escape"], waitRelease=False)
                 _key_resp_2_allKeys.extend(theseKeys)
                 if len(_key_resp_2_allKeys):
                     key_resp_2.keys = _key_resp_2_allKeys[-1].name  # just the last key pressed
