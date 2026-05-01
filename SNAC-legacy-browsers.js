@@ -3599,7 +3599,7 @@ async function quitPsychoJS(message, isCompleted) {
       'duration': 'act_time',
       'imagename': 'imagename',
       'end_time_mouse.time': 'est_time',
-      'vastness_answer.response': 'vast_score'
+      'slider_2.response': 'vast_score'
   };
   
   // Get the list of original column names to keep
