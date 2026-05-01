@@ -3580,6 +3580,22 @@ async function quitPsychoJS(message, isCompleted) {
   // Extract data object from experiment
   let dataObj = psychoJS._experiment._trialsData;
   
+  // Define the columns to keep and their new names
+  let columnMapping = {
+      'Please keep this number!': 'ID',
+      'group': 'group',
+      'equation': 'equation',
+      'answer': 'correct_answer',
+      'answer_end.clicked_name': 'ppt_answer',
+      'duration': 'act_time',
+      'imagename': 'imagename',
+      'end_time_mouse.time': 'est_time',
+      'slider_2.response': 'vast_score'
+  };
+  
+  // Get the list of original column names to keep
+  let columnsToKeep = Object.keys(columnMapping);
+  
   // Step 1: Collect ALL unique keys from every trial (to identify all possible columns)
   let allPossibleKeys = new Set();
   dataObj.forEach(trial => {
