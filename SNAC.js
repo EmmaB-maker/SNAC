@@ -431,6 +431,7 @@ var start_time;
 var hg_start_bottom;
 var hg_start_top;
 var start_time_mouse;
+var time_instructions;
 var time_endClock;
 var end_time;
 var hg_end_bottom;
@@ -860,6 +861,18 @@ async function experimentInit() {
     win: psychoJS.window,
   });
   start_time_mouse.mouseClock = new util.Clock();
+  time_instructions = new visual.TextStim({
+    win: psychoJS.window,
+    name: 'time_instructions',
+    text: 'Please click the hourglass displayed on the screen once to start the timer and then a second time to stop the timer, replicating how long the image was displayed for.',
+    font: 'Arial',
+    units: 'norm', 
+    pos: [0, 0.4], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    languageStyle: 'LTR',
+    color: new util.Color('gray'),  opacity: 1.0,
+    depth: -4.0 
+  });
+  
   // Initialize components for Routine "time_end"
   time_endClock = new util.Clock();
   end_time = new visual.TextStim({
@@ -2785,6 +2798,7 @@ function time_startRoutineBegin(snapshot) {
     time_startComponents.push(hg_start_bottom);
     time_startComponents.push(hg_start_top);
     time_startComponents.push(start_time_mouse);
+    time_startComponents.push(time_instructions);
     
     for (const thisComponent of time_startComponents)
       if ('status' in thisComponent)
@@ -2876,6 +2890,16 @@ function time_startRoutineEachFrame() {
         }
       }
     }
+    
+    // *time_instructions* updates
+    if (t >= 0.0 && time_instructions.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      time_instructions.tStart = t;  // (not accounting for frame time here)
+      time_instructions.frameNStart = frameN;  // exact frame index
+      
+      time_instructions.setAutoDraw(true);
+    }
+    
     // check for quit (typically the Esc key)
     if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
       return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
