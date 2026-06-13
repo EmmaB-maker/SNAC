@@ -344,9 +344,6 @@ psychoJS.start({
 
 psychoJS.experimentLogger.setLevel(core.Logger.ServerLevel.INFO);
 
-
-var currentLoop;
-var frameDur;
 async function updateInfo() {
   currentLoop = psychoJS.experiment;  // right now there are no loops
   expInfo['date'] = util.MonotonicClock.getDateStr();  // add a simple timestamp
@@ -375,76 +372,6 @@ async function updateInfo() {
   return Scheduler.Event.NEXT;
 }
 
-
-var start_pClock;
-var text_15;
-var key_resp_3;
-var p_equationClock;
-var text_9;
-var p_imageClock;
-var image_6;
-var p_math_answerClock;
-var text_10;
-var p_a;
-var p_b;
-var mouse;
-var p_time_startClock;
-var text_11;
-var polygon;
-var polygon_2;
-var mouse_2;
-var time_instructionp;
-var p_time_endClock;
-var text_12;
-var polygon_3;
-var polygon_4;
-var mouse_3;
-var p_vastnessClock;
-var vast_Q;
-var slider;
-var mouse_4;
-var define_vast;
-var Submit_score_button;
-var Submit_score;
-var start_eClock;
-var text;
-var key_resp;
-var equationsClock;
-var math_equation;
-var ImageClock;
-var image;
-var math_answerClock;
-var answers;
-var answer_a;
-var answer_b;
-var answer_end;
-var time_startClock;
-var start_time;
-var hg_start_bottom;
-var hg_start_top;
-var start_time_mouse;
-var time_instructions;
-var time_endClock;
-var end_time;
-var hg_end_bottom;
-var hg_end_top;
-var end_time_mouse;
-var vastnessClock;
-var vast_Q_2;
-var slider_2;
-var mouse_6;
-var define_vast_2;
-var Submit_score_button_2;
-var Submit_score_2;
-var catchClock;
-var text_3;
-var key_resp_2;
-var endClock;
-var text_2;
-var text_6;
-var text_7;
-var globalClock;
-var routineTimer;
 async function experimentInit() {
   // Initialize components for Routine "start_p"
   start_pClock = new util.Clock();
@@ -655,7 +582,7 @@ async function experimentInit() {
     text: "How vast does this environment feel? (Even though it's a photo, rate the sense of expansive space the image conveys.)",
     font: 'Arial',
     units: 'norm', 
-    pos: [0, 0.3], draggable: false, height: 0.1,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0.5], draggable: false, height: 0.1,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
     depth: 0.0 
@@ -682,7 +609,7 @@ async function experimentInit() {
     text: 'Vastness: a perceptual phenomenon that occurs when a space seems to extend to very far distances, seemingly without limit.',
     font: 'Arial',
     units: 'norm', 
-    pos: [0, 0.5], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0.75], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('gray'),  opacity: 1.0,
     depth: -3.0 
@@ -923,7 +850,7 @@ async function experimentInit() {
     text: "How vast does this environment feel? (Even though it's a photo, rate the sense of expansive space the image conveys.)",
     font: 'Arial',
     units: 'norm', 
-    pos: [0, 0.3], draggable: false, height: 0.1,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0.5], draggable: false, height: 0.1,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
     depth: 0.0 
@@ -950,7 +877,7 @@ async function experimentInit() {
     text: 'Vastness: a perceptual phenomenon that occurs when a space seems to extend to very far distances, seemingly without limit.',
     font: 'Arial',
     units: 'norm', 
-    pos: [0, 0.5], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    pos: (0, 0.7.5), draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('gray'),  opacity: 1.0,
     depth: -3.0 
@@ -1045,14 +972,6 @@ async function experimentInit() {
   return Scheduler.Event.NEXT;
 }
 
-
-var t;
-var frameN;
-var continueRoutine;
-var start_pMaxDurationReached;
-var _key_resp_3_allKeys;
-var start_pMaxDuration;
-var start_pComponents;
 function start_pRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1082,7 +1001,6 @@ function start_pRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function start_pRoutineEachFrame() {
   return async function () {
@@ -1152,7 +1070,6 @@ function start_pRoutineEachFrame() {
   };
 }
 
-
 function start_pRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'start_p' ---
@@ -1185,10 +1102,6 @@ function start_pRoutineEnd(snapshot) {
   }
 }
 
-
-var p_equationMaxDurationReached;
-var p_equationMaxDuration;
-var p_equationComponents;
 function p_equationRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1215,8 +1128,6 @@ function p_equationRoutineBegin(snapshot) {
   }
 }
 
-
-var frameRemains;
 function p_equationRoutineEachFrame() {
   return async function () {
     //--- Loop for each frame of Routine 'p_equation' ---
@@ -1265,7 +1176,6 @@ function p_equationRoutineEachFrame() {
   };
 }
 
-
 function p_equationRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'p_equation' ---
@@ -1288,10 +1198,6 @@ function p_equationRoutineEnd(snapshot) {
   }
 }
 
-
-var p_imageMaxDurationReached;
-var p_imageMaxDuration;
-var p_imageComponents;
 function p_imageRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1317,7 +1223,6 @@ function p_imageRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function p_imageRoutineEachFrame() {
   return async function () {
@@ -1367,7 +1272,6 @@ function p_imageRoutineEachFrame() {
   };
 }
 
-
 function p_imageRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'p_image' ---
@@ -1390,11 +1294,6 @@ function p_imageRoutineEnd(snapshot) {
   }
 }
 
-
-var p_math_answerMaxDurationReached;
-var gotValidClick;
-var p_math_answerMaxDuration;
-var p_math_answerComponents;
 function p_math_answerRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1434,10 +1333,6 @@ function p_math_answerRoutineBegin(snapshot) {
   }
 }
 
-
-var prevButtonState;
-var _mouseButtons;
-var _mouseXYs;
 function p_math_answerRoutineEachFrame() {
   return async function () {
     //--- Loop for each frame of Routine 'p_math_answer' ---
@@ -1546,7 +1441,6 @@ function p_math_answerRoutineEachFrame() {
   };
 }
 
-
 function p_math_answerRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'p_math_answer' ---
@@ -1576,10 +1470,6 @@ function p_math_answerRoutineEnd(snapshot) {
   }
 }
 
-
-var p_time_startMaxDurationReached;
-var p_time_startMaxDuration;
-var p_time_startComponents;
 function p_time_startRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1619,7 +1509,6 @@ function p_time_startRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function p_time_startRoutineEachFrame() {
   return async function () {
@@ -1739,7 +1628,6 @@ function p_time_startRoutineEachFrame() {
   };
 }
 
-
 function p_time_startRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'p_time_start' ---
@@ -1769,10 +1657,6 @@ function p_time_startRoutineEnd(snapshot) {
   }
 }
 
-
-var p_time_endMaxDurationReached;
-var p_time_endMaxDuration;
-var p_time_endComponents;
 function p_time_endRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1811,7 +1695,6 @@ function p_time_endRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function p_time_endRoutineEachFrame() {
   return async function () {
@@ -1921,7 +1804,6 @@ function p_time_endRoutineEachFrame() {
   };
 }
 
-
 function p_time_endRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'p_time_end' ---
@@ -1951,10 +1833,6 @@ function p_time_endRoutineEnd(snapshot) {
   }
 }
 
-
-var p_vastnessMaxDurationReached;
-var p_vastnessMaxDuration;
-var p_vastnessComponents;
 function p_vastnessRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -1996,7 +1874,6 @@ function p_vastnessRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function p_vastnessRoutineEachFrame() {
   return async function () {
@@ -2126,7 +2003,6 @@ function p_vastnessRoutineEachFrame() {
   };
 }
 
-
 function p_vastnessRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'p_vastness' ---
@@ -2158,8 +2034,6 @@ function p_vastnessRoutineEnd(snapshot) {
   }
 }
 
-
-var trials;
 function trialsLoopBegin(trialsLoopScheduler, snapshot) {
   return async function() {
     TrialHandler.fromSnapshot(snapshot); // update internal variables (.thisN etc) of the loop
@@ -2211,7 +2085,6 @@ function trialsLoopBegin(trialsLoopScheduler, snapshot) {
   }
 }
 
-
 async function trialsLoopEnd() {
   // terminate loop
   psychoJS.experiment.removeLoop(trials);
@@ -2222,7 +2095,6 @@ async function trialsLoopEnd() {
     currentLoop = psychoJS.experiment;  // so we use addData from the experiment
   return Scheduler.Event.NEXT;
 }
-
 
 function trialsLoopEndIteration(scheduler, snapshot) {
   // ------Prepare for next entry------
@@ -2243,11 +2115,6 @@ function trialsLoopEndIteration(scheduler, snapshot) {
   };
 }
 
-
-var start_eMaxDurationReached;
-var _key_resp_allKeys;
-var start_eMaxDuration;
-var start_eComponents;
 function start_eRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -2277,7 +2144,6 @@ function start_eRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function start_eRoutineEachFrame() {
   return async function () {
@@ -2347,7 +2213,6 @@ function start_eRoutineEachFrame() {
   };
 }
 
-
 function start_eRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'start_e' ---
@@ -2380,10 +2245,6 @@ function start_eRoutineEnd(snapshot) {
   }
 }
 
-
-var equationsMaxDurationReached;
-var equationsMaxDuration;
-var equationsComponents;
 function equationsRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -2410,7 +2271,6 @@ function equationsRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function equationsRoutineEachFrame() {
   return async function () {
@@ -2460,7 +2320,6 @@ function equationsRoutineEachFrame() {
   };
 }
 
-
 function equationsRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'equations' ---
@@ -2483,10 +2342,6 @@ function equationsRoutineEnd(snapshot) {
   }
 }
 
-
-var ImageMaxDurationReached;
-var ImageMaxDuration;
-var ImageComponents;
 function ImageRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -2513,7 +2368,6 @@ function ImageRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function ImageRoutineEachFrame() {
   return async function () {
@@ -2563,7 +2417,6 @@ function ImageRoutineEachFrame() {
   };
 }
 
-
 function ImageRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'Image' ---
@@ -2584,10 +2437,6 @@ function ImageRoutineEnd(snapshot) {
   }
 }
 
-
-var math_answerMaxDurationReached;
-var math_answerMaxDuration;
-var math_answerComponents;
 function math_answerRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -2628,7 +2477,6 @@ function math_answerRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function math_answerRoutineEachFrame() {
   return async function () {
@@ -2738,7 +2586,6 @@ function math_answerRoutineEachFrame() {
   };
 }
 
-
 function math_answerRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'math_answer' ---
@@ -2768,10 +2615,6 @@ function math_answerRoutineEnd(snapshot) {
   }
 }
 
-
-var time_startMaxDurationReached;
-var time_startMaxDuration;
-var time_startComponents;
 function time_startRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -2811,7 +2654,6 @@ function time_startRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function time_startRoutineEachFrame() {
   return async function () {
@@ -2931,7 +2773,6 @@ function time_startRoutineEachFrame() {
   };
 }
 
-
 function time_startRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'time_start' ---
@@ -2961,10 +2802,6 @@ function time_startRoutineEnd(snapshot) {
   }
 }
 
-
-var time_endMaxDurationReached;
-var time_endMaxDuration;
-var time_endComponents;
 function time_endRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -3003,7 +2840,6 @@ function time_endRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function time_endRoutineEachFrame() {
   return async function () {
@@ -3113,7 +2949,6 @@ function time_endRoutineEachFrame() {
   };
 }
 
-
 function time_endRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'time_end' ---
@@ -3143,10 +2978,6 @@ function time_endRoutineEnd(snapshot) {
   }
 }
 
-
-var vastnessMaxDurationReached;
-var vastnessMaxDuration;
-var vastnessComponents;
 function vastnessRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -3188,7 +3019,6 @@ function vastnessRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function vastnessRoutineEachFrame() {
   return async function () {
@@ -3318,7 +3148,6 @@ function vastnessRoutineEachFrame() {
   };
 }
 
-
 function vastnessRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'vastness' ---
@@ -3350,11 +3179,6 @@ function vastnessRoutineEnd(snapshot) {
   }
 }
 
-
-var catchMaxDurationReached;
-var _key_resp_2_allKeys;
-var catchMaxDuration;
-var catchComponents;
 function catchRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -3395,7 +3219,6 @@ function catchRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function catchRoutineEachFrame() {
   return async function () {
@@ -3464,7 +3287,6 @@ function catchRoutineEachFrame() {
   };
 }
 
-
 function catchRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'catch' ---
@@ -3497,10 +3319,6 @@ function catchRoutineEnd(snapshot) {
   }
 }
 
-
-var endMaxDurationReached;
-var endMaxDuration;
-var endComponents;
 function endRoutineBegin(snapshot) {
   return async function () {
     TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
@@ -3528,7 +3346,6 @@ function endRoutineBegin(snapshot) {
     return Scheduler.Event.NEXT;
   }
 }
-
 
 function endRoutineEachFrame() {
   return async function () {
@@ -3593,7 +3410,6 @@ function endRoutineEachFrame() {
   };
 }
 
-
 function endRoutineEnd(snapshot) {
   return async function () {
     //--- Ending Routine 'end' ---
@@ -3614,14 +3430,12 @@ function endRoutineEnd(snapshot) {
   }
 }
 
-
 function importConditions(currentLoop) {
   return async function () {
     psychoJS.importAttributes(currentLoop.getCurrentTrial());
     return Scheduler.Event.NEXT;
     };
 }
-
 
 async function quitPsychoJS(message, isCompleted) {
   // Check for and save orphaned data
