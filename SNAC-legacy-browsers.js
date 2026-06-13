@@ -655,7 +655,7 @@ async function experimentInit() {
     text: "How vast does this environment feel? (Even though it's a photo, rate the sense of expansive space the image conveys.)",
     font: 'Arial',
     units: 'norm', 
-    pos: [0, 0.2], draggable: false, height: 0.1,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0.3], draggable: false, height: 0.1,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
     depth: 0.0 
@@ -682,7 +682,7 @@ async function experimentInit() {
     text: 'Vastness: a perceptual phenomenon that occurs when a space seems to extend to very far distances, seemingly without limit.',
     font: 'Arial',
     units: 'norm', 
-    pos: [0, 0.4], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0.5], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('gray'),  opacity: 1.0,
     depth: -3.0 
@@ -923,7 +923,7 @@ async function experimentInit() {
     text: "How vast does this environment feel? (Even though it's a photo, rate the sense of expansive space the image conveys.)",
     font: 'Arial',
     units: 'norm', 
-    pos: [0, 0.2], draggable: false, height: 0.1,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0.3], draggable: false, height: 0.1,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
     depth: 0.0 
@@ -950,7 +950,7 @@ async function experimentInit() {
     text: 'Vastness: a perceptual phenomenon that occurs when a space seems to extend to very far distances, seemingly without limit.',
     font: 'Arial',
     units: 'norm', 
-    pos: [0, 0.4], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0.5], draggable: false, height: 0.05,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('gray'),  opacity: 1.0,
     depth: -3.0 
