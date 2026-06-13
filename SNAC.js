@@ -660,7 +660,7 @@ async function experimentInit() {
   vast_Q = new visual.TextStim({
     win: psychoJS.window,
     name: 'vast_Q',
-    text: 'How vast was the image?',
+    text: "How vast does this environment feel? (Even though it's a photo, rate the sense of expansive space the image conveys.)",
     font: 'Arial',
     units: 'norm', 
     pos: [0, 0.2], draggable: false, height: 0.1,  wrapWidth: undefined, ori: 0.0,
@@ -928,7 +928,7 @@ async function experimentInit() {
   vast_Q_2 = new visual.TextStim({
     win: psychoJS.window,
     name: 'vast_Q_2',
-    text: 'How vast was the image?',
+    text: "How vast does this environment feel? (Even though it's a photo, rate the sense of expansive space the image conveys.)",
     font: 'Arial',
     units: 'norm', 
     pos: [0, 0.2], draggable: false, height: 0.1,  wrapWidth: undefined, ori: 0.0,
