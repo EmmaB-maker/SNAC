@@ -655,7 +655,7 @@ async function experimentInit() {
     text: "How vast does this environment feel? (Even though it's a photo, rate the sense of expansive space the image conveys.)",
     font: 'Arial',
     units: 'norm', 
-    pos: [0, 0.45], draggable: false, height: 0.1,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0.4], draggable: false, height: 0.1,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
     depth: 0.0 
@@ -923,7 +923,7 @@ async function experimentInit() {
     text: "How vast does this environment feel? (Even though it's a photo, rate the sense of expansive space the image conveys.)",
     font: 'Arial',
     units: 'norm', 
-    pos: [0, 0.45], draggable: false, height: 0.1,  wrapWidth: undefined, ori: 0.0,
+    pos: [0, 0.4], draggable: false, height: 0.1,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
     depth: 0.0 
