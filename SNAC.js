@@ -1043,7 +1043,7 @@ async function experimentInit() {
     pos: [0, (- 0.2)], draggable: false, height: 0.08,  wrapWidth: undefined, ori: 0.0,
     languageStyle: 'LTR',
     color: new util.Color('black'),  opacity: 1.0,
-    depth: -3.0 
+    depth: -2.0 
   });
   
   // Create some handy timers
@@ -3619,104 +3619,6 @@ async function quitPsychoJS(message, isCompleted) {
   if (psychoJS.experiment.isEntryEmpty()) {
     psychoJS.experiment.nextEntry();
   }
-  // Disable downloading results to browser
-  psychoJS._saveResults = 0;
-  
-  // Generate filename for results
-  let filename = expInfo['Please keep this number!'] + '.csv';
-  
-  // Extract data object from experiment
-  let dataObj = psychoJS._experiment._trialsData;
-  
-  // Define the columns to keep and their new names
-  let columnMapping = {
-      'Please keep this number!': 'ID',
-      'group': 'group',
-      'equation': 'equation',
-      'answer': 'correct_answer',
-      'answer_end.clicked_name': 'ppt_answer',
-      'duration': 'act_time',
-      'imagename': 'imagename',
-      'end_time_mouse.time': 'est_time',
-      'slider_2.response': 'vast_score'
-  };
-  
-  // Get the list of original column names to keep
-  let columnsToKeep = Object.keys(columnMapping);
-  
-  // Step 1: Collect ALL unique keys from every trial (to identify all possible columns)
-  let allPossibleKeys = new Set();
-  dataObj.forEach(trial => {
-      Object.keys(trial).forEach(key => {
-          allPossibleKeys.add(key);
-      });
-  });
-  
-  // Step 2: Create a function that extracts only the columns we want
-  function extractAndRenameTrial(trial, columnsToKeep, columnMapping) {
-      let extractedRow = {};
-      columnsToKeep.forEach(originalKey => {
-          let newKey = columnMapping[originalKey];
-          let value = '';
-          
-          // Check if the trial has this key and it's not undefined/null
-          if (trial.hasOwnProperty(originalKey) && trial[originalKey] !== undefined && trial[originalKey] !== null) {
-              value = trial[originalKey];
-              // Handle arrays/objects by converting to JSON string
-              if (typeof value === 'object') {
-                  value = JSON.stringify(value);
-              }
-          }
-          extractedRow[newKey] = value;
-      });
-      return extractedRow;
-  }
-  
-  // Step 3: Extract and rename data for all trials
-  let filteredData = dataObj.map(trial => extractAndRenameTrial(trial, columnsToKeep, columnMapping));
-  
-  // Step 4: Convert filtered data to CSV
-  let headers = Object.keys(columnMapping).map(key => columnMapping[key]); // Get renamed headers
-  let data = [headers.join(',')]; // Header row with renamed columns
-  
-  filteredData.forEach(row => {
-      let rowValues = headers.map(header => {
-          let value = row[header];
-          // Handle values that might contain commas or quotes
-          if (typeof value === 'string' && (value.includes(',') || value.includes('"'))) {
-              return '"' + value.replace(/"/g, '""') + '"';
-          }
-          return value;
-      });
-      data.push(rowValues.join(','));
-  });
-  
-  let finalCSV = data.join('\n');
-  
-  // Send data to OSF via DataPipe
-  console.log('Saving data with filtered columns...');
-  console.log('Columns:', headers.join(', '));
-  console.log('Total rows:', filteredData.length);
-  
-  fetch('https://pipe.jspsych.org/api/data', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json',
-          Accept: '*/*',
-      },
-      body: JSON.stringify({
-          experimentID: 'Jbc9toAnfsBP', // * UPDATE WITH YOUR DATAPIKE EXPERIMENT ID *
-          filename: filename,
-          data: finalCSV,
-      }),
-  }).then(response => response.json()).then(data => {
-      // Log response and force experiment end
-      console.log(data);
-      quitPsychoJS();
-  }).catch(error => {
-      console.error('Error saving data:', error);
-      quitPsychoJS();
-  });
   psychoJS.window.close();
   psychoJS.quit({message: message, isCompleted: isCompleted});
   
