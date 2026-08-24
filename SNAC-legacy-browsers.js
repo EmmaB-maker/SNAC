@@ -3747,12 +3747,6 @@ async function quitPsychoJS(message, isCompleted) {
       if (!window._quitAttempted) {
           window._quitAttempted = true;
           
-          // Show a message to the participant
-          let message = 'Your data file "' + filename + '" has been downloaded to your Downloads folder.\n\n';
-          message += 'Please move it to the "SNAC-data" folder on your Desktop.\n\n';
-          message += 'Thank you for participating!';
-          alert(message);
-          
           // Small delay before quitting to ensure download starts
           setTimeout(function() {
               try {
