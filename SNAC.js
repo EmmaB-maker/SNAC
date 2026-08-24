@@ -3620,107 +3620,109 @@ async function quitPsychoJS(message, isCompleted) {
     psychoJS.experiment.nextEntry();
   }
   // Run 'End Experiment' code from Save_Data
-  // Disable downloading results to browser (we'll do it manually)
+  // Disable default download
   psychoJS._saveResults = 0;
   
-  // Generate filename for results
-  let filename = expInfo['Please keep this number!'] + '.csv';
+  // Flag to prevent multiple downloads
+  if (typeof window._dataDownloaded === 'undefined') {
+      window._dataDownloaded = false;
+  }
   
-  // Extract data object from experiment
-  let dataObj = psychoJS._experiment._trialsData;
-  
-  // Define the columns to keep and their new names
-  let columnMapping = {
-      'Please keep this number!': 'ID',
-      'group': 'group',
-      'equation': 'equation',
-      'answer': 'correct_answer',
-      'answer_end.clicked_name': 'ppt_answer',
-      'duration': 'act_time',
-      'imagename': 'imagename',
-      'end_time_mouse.time': 'est_time',
-      'slider_2.response': 'vast_score'
-  };
-  
-  // Get the list of original column names to keep
-  let columnsToKeep = Object.keys(columnMapping);
-  
-  // Collect ALL unique keys from every trial
-  let allPossibleKeys = new Set();
-  dataObj.forEach(trial => {
-      Object.keys(trial).forEach(key => {
-          allPossibleKeys.add(key);
+  if (!window._dataDownloaded) {
+      window._dataDownloaded = true;
+      
+      // Generate filename for results
+      let filename = expInfo['Please keep this number!'] + '.csv';
+      
+      // Extract data object from experiment
+      let dataObj = psychoJS._experiment._trialsData;
+      
+      // Define the columns to keep and their new names
+      let columnMapping = {
+          'Please keep this number!': 'ID',
+          'group': 'group',
+          'equation': 'equation',
+          'answer': 'correct_answer',
+          'answer_end.clicked_name': 'ppt_answer',
+          'duration': 'act_time',
+          'imagename': 'imagename',
+          'end_time_mouse.time': 'est_time',
+          'slider_2.response': 'vast_score'
+      };
+      
+      // Get the list of original column names to keep
+      let columnsToKeep = Object.keys(columnMapping);
+      
+      // Collect ALL unique keys from every trial
+      let allPossibleKeys = new Set();
+      dataObj.forEach(trial => {
+          Object.keys(trial).forEach(key => {
+              allPossibleKeys.add(key);
+          });
       });
-  });
-  
-  // Extract only the columns we want
-  function extractAndRenameTrial(trial, columnsToKeep, columnMapping) {
-      let extractedRow = {};
-      columnsToKeep.forEach(originalKey => {
-          let newKey = columnMapping[originalKey];
-          let value = '';
-          
-          if (trial.hasOwnProperty(originalKey) && trial[originalKey] !== undefined && trial[originalKey] !== null) {
-              value = trial[originalKey];
-              if (typeof value === 'object') {
-                  value = JSON.stringify(value);
+      
+      // Extract only the columns we want
+      function extractAndRenameTrial(trial, columnsToKeep, columnMapping) {
+          let extractedRow = {};
+          columnsToKeep.forEach(originalKey => {
+              let newKey = columnMapping[originalKey];
+              let value = '';
+              
+              if (trial.hasOwnProperty(originalKey) && trial[originalKey] !== undefined && trial[originalKey] !== null) {
+                  value = trial[originalKey];
+                  if (typeof value === 'object') {
+                      value = JSON.stringify(value);
+                  }
               }
-          }
-          extractedRow[newKey] = value;
+              extractedRow[newKey] = value;
+          });
+          return extractedRow;
+      }
+      
+      // Extract and rename data for all trials
+      let filteredData = dataObj.map(trial => extractAndRenameTrial(trial, columnsToKeep, columnMapping));
+      
+      // Convert filtered data to CSV
+      let headers = Object.keys(columnMapping).map(key => columnMapping[key]);
+      let data = [headers.join(',')];
+      
+      filteredData.forEach(row => {
+          let rowValues = headers.map(header => {
+              let value = row[header];
+              if (typeof value === 'string' && (value.includes(',') || value.includes('"'))) {
+                  return '"' + value.replace(/"/g, '""') + '"';
+              }
+              return value;
+          });
+          data.push(rowValues.join(','));
       });
-      return extractedRow;
+      
+      let finalCSV = data.join('\n');
+      
+      // Download function
+      function downloadCSV(csvContent, fileName) {
+          const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+          const link = document.createElement('a');
+          const url = URL.createObjectURL(blob);
+          link.href = url;
+          link.download = fileName;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          URL.revokeObjectURL(url);
+      }
+      
+      // Download the file
+      downloadCSV(finalCSV, filename);
+      
+      // Log for debugging
+      console.log('CSV downloaded:', filename);
+      console.log('Columns:', headers.join(', '));
+      console.log('Total rows:', filteredData.length);
+      
+      // End the experiment
+      quitPsychoJS();
   }
-  
-  // Extract and rename data for all trials
-  let filteredData = dataObj.map(trial => extractAndRenameTrial(trial, columnsToKeep, columnMapping));
-  
-  // Convert filtered data to CSV
-  let headers = Object.keys(columnMapping).map(key => columnMapping[key]);
-  let data = [headers.join(',')];
-  
-  filteredData.forEach(row => {
-      let rowValues = headers.map(header => {
-          let value = row[header];
-          if (typeof value === 'string' && (value.includes(',') || value.includes('"'))) {
-              return '"' + value.replace(/"/g, '""') + '"';
-          }
-          return value;
-      });
-      data.push(rowValues.join(','));
-  });
-  
-  let finalCSV = data.join('\n');
-  
-  // --- NEW CODE: Download the CSV ---
-  function downloadCSV(csvContent, fileName) {
-      // Create a blob with the CSV data
-      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-      
-      // Create a download link
-      const link = document.createElement('a');
-      const url = URL.createObjectURL(blob);
-      link.href = url;
-      link.download = fileName;
-      
-      // Trigger the download
-      document.body.appendChild(link);
-      link.click();
-      
-      // Clean up
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
-  }
-  
-  // Download the file
-  downloadCSV(finalCSV, filename);
-  
-  // Log for debugging
-  console.log('CSV downloaded:', filename);
-  console.log('Columns:', headers.join(', '));
-  console.log('Total rows:', filteredData.length);
-  
-  // End the experiment
-  quitPsychoJS();
   psychoJS.window.close();
   psychoJS.quit({message: message, isCompleted: isCompleted});
   
