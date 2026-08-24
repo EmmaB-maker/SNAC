@@ -3637,6 +3637,11 @@ async function quitPsychoJS(message, isCompleted) {
       window._dataDownloaded = false;
   }
   
+  // Flag to prevent multiple quit attempts
+  if (typeof window._quitAttempted === 'undefined') {
+      window._quitAttempted = false;
+  }
+  
   if (!window._dataDownloaded) {
       window._dataDownloaded = true;
       
@@ -3710,27 +3715,53 @@ async function quitPsychoJS(message, isCompleted) {
       
       // Download function
       function downloadCSV(csvContent, fileName) {
-          const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-          const link = document.createElement('a');
-          const url = URL.createObjectURL(blob);
-          link.href = url;
-          link.download = fileName;
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-          URL.revokeObjectURL(url);
+          try {
+              const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+              const link = document.createElement('a');
+              const url = URL.createObjectURL(blob);
+              link.href = url;
+              link.download = fileName;
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+              URL.revokeObjectURL(url);
+              return true;
+          } catch (e) {
+              console.error('Download failed:', e);
+              return false;
+          }
       }
       
+      // Show a message about where the file is saved
+      let participantID = expInfo['Please keep this number!'] || 'unknown';
+      
       // Download the file
-      downloadCSV(finalCSV, filename);
+      let downloadSuccess = downloadCSV(finalCSV, filename);
       
       // Log for debugging
       console.log('CSV downloaded:', filename);
       console.log('Columns:', headers.join(', '));
       console.log('Total rows:', filteredData.length);
       
-      // End the experiment
-      quitPsychoJS();
+      // Only quit once, with a small delay
+      if (!window._quitAttempted) {
+          window._quitAttempted = true;
+          
+          // Show a message to the participant
+          let message = 'Your data file "' + filename + '" has been downloaded to your Downloads folder.\n\n';
+          message += 'Please move it to the "SNAC-data" folder on your Desktop.\n\n';
+          message += 'Thank you for participating!';
+          alert(message);
+          
+          // Small delay before quitting to ensure download starts
+          setTimeout(function() {
+              try {
+                  quitPsychoJS();
+              } catch (e) {
+                  console.log('Experiment already ended');
+              }
+          }, 200);
+      }
   }
   psychoJS.window.close();
   psychoJS.quit({message: message, isCompleted: isCompleted});
